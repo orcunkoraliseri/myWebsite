@@ -10,6 +10,14 @@ body {
   background-color: var(--bg-color);
   color: var(--text-dark);
   padding: 24px 40px;
+  /* Override the row-flex centering inherited from styles.css. A column layout
+     keeps the content width fixed (capped at 1200px, centered) no matter how
+     many posts the filter shows — otherwise the row-flex sizes the column to its
+     content, so years with shorter titles shift the whole block sideways. */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
   overflow: visible;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
@@ -46,6 +54,7 @@ body {
    Index: post list
    =========================== */
 .blog-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   display: flex;

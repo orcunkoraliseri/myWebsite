@@ -15,6 +15,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const FEED = path.join(ROOT, 'content', 'blog', 'Blogs', 'Personal Blog', 'feed.atom');
@@ -22,6 +23,19 @@ const POSTS_DIR = path.join(ROOT, 'content', 'blog', 'posts');
 const IMG_MAP_FILE = path.join(POSTS_DIR, 'img-map.json');
 
 const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+// Content-hash cache-buster: appended to blog.css / blog.js URLs so browsers and
+// the GitHub Pages CDN fetch a fresh copy automatically whenever the file changes
+// (avoids stale-cache breakage when a file is edited but its URL stays the same).
+function assetVer(relPath) {
+  try {
+    return crypto.createHash('md5').update(fs.readFileSync(path.join(ROOT, relPath))).digest('hex').slice(0, 8);
+  } catch {
+    return '1';
+  }
+}
+const CSS_VER = assetVer('blog.css');
+const JS_VER = assetVer('blog.js');
 
 // ---------- helpers ----------
 function decodeEntities(s) {
@@ -148,7 +162,7 @@ function postPage(p) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../styles.css">
-  <link rel="stylesheet" href="../../../blog.css">
+  <link rel="stylesheet" href="../../../blog.css?v=${CSS_VER}">
 </head>
 <body>
   <!-- Sticky top bar with Home Link -->
@@ -218,7 +232,7 @@ const indexHtml = `<!DOCTYPE html>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="blog.css?v=${CSS_VER}">
 </head>
 <body>
   <!-- Sticky top bar with Home Link -->
@@ -241,7 +255,7 @@ ${posts.map(card).join('\n')}
     <p class="blog-noresults" id="blog-noresults" hidden>No posts match your search.</p>
   </main>
 
-  <script src="blog.js"></script>
+  <script src="blog.js?v=${JS_VER}"></script>
 </body>
 </html>
 `;
