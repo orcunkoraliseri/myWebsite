@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personal Portfolio</title>
+  <meta name="description" content="A clean, minimalist personal website featuring an interactive 6-rectangle grid navigation.">
+  
+  <!-- Google Fonts: Inter for general fallback, Caveat for the handwritten style -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Main interactive 3x2 grid of rectangles -->
+  <main class="grid-container" aria-label="Main Navigation Grid">
+    
+    <!-- Row 1 -->
+    <a href="#about" class="tile tile--orange" id="tile-about">
+      <span class="tile__label">about me</span>
+    </a>
+    
+    <a href="#experience" class="tile tile--magenta" id="tile-experience">
+      <span class="tile__label">experience</span>
+    </a>
+    
+    <a href="#education" class="tile tile--cyan" id="tile-education">
+      <span class="tile__label">education</span>
+    </a>
+    
+    <!-- Row 2 -->
+    <a href="#articles" class="tile tile--green" id="tile-articles">
+      <span class="tile__label">publications</span>
+    </a>
+    
+    <a href="#blog" class="tile tile--blue" id="tile-blog">
+      <span class="tile__label">blog</span>
+    </a>
+    
+    <a href="#skills" class="tile tile--yellow" id="tile-skills">
+      <span class="tile__label">skills</span>
+    </a>
+    
+  </main>
+
+  <!-- JavaScript for interaction enhancements (mobile touch, staggered load, parallax tilt) -->
+  <script src="script.js"></script>
+</body>
+</html>

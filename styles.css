@@ -1,0 +1,195 @@
+/* Base Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgba(248, 248, 246, 1);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding: 40px;
+}
+
+/* Grid Container */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 28px;
+  width: 100%;
+  max-width: 1100px;
+  height: 60vh;
+  max-height: 600px;
+  perspective: 1000px; /* Enable potential 3D effects */
+}
+
+/* Tile Styles */
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 24px;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--tile-color);
+  
+  /* Initial state for staggered page-load animation */
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+  transition: 
+    opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.3s ease;
+  
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Specific Tile Colors & Text Adjustments */
+.tile--orange {
+  --tile-color: rgba(240, 95, 51, 1);
+  --text-color: #ffffff;
+}
+
+.tile--magenta {
+  --tile-color: rgba(180, 4, 149, 1);
+  --text-color: #ffffff;
+}
+
+.tile--cyan {
+  --tile-color: rgba(20, 199, 222, 1);
+  --text-color: #1a1a24;
+}
+
+.tile--green {
+  --tile-color: rgba(48, 218, 119, 1);
+  --text-color: #1a1a24;
+}
+
+.tile--blue {
+  --tile-color: rgba(53, 152, 219, 1);
+  --text-color: #ffffff;
+}
+
+.tile--yellow {
+  --tile-color: rgba(253, 214, 4, 1);
+  --text-color: #1a1a24;
+}
+
+/* Subtle gloss overlay for standard premium look */
+.tile::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+}
+
+/* Hover State */
+.tile:hover {
+  transform: translateY(-8px) scale(1.03) !important;
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition-delay: 0s !important; /* Immediately respond to hover */
+}
+
+/* Tile Label - Handwritten Style */
+.tile__label {
+  font-family: 'Caveat', cursive;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.15;
+  opacity: 0;
+  transform: translateY(12px) scale(0.9);
+  transition: 
+    opacity 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+    transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+  user-select: none;
+  pointer-events: none;
+  padding: 20px;
+}
+
+/* Show Label on Hover */
+.tile:hover .tile__label {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Active/Focus states for accessibility and interactive response */
+.tile:focus-visible {
+  outline: 3px solid rgba(53, 152, 219, 0.5);
+  outline-offset: 4px;
+}
+
+/* Active Tap (for Mobile feedback) */
+.tile:active {
+  transform: translateY(-2px) scale(0.99) !important;
+}
+
+/* Triggered Load Animations (via JS class) */
+.loaded .tile {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Staggered entrance delays on load */
+.loaded #tile-about { transition-delay: 0.1s; }
+.loaded #tile-experience { transition-delay: 0.18s; }
+.loaded #tile-education { transition-delay: 0.26s; }
+.loaded #tile-articles { transition-delay: 0.34s; }
+.loaded #tile-blog { transition-delay: 0.42s; }
+.loaded #tile-skills { transition-delay: 0.5s; }
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  body {
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    height: 80vh;
+    min-height: 500px;
+  }
+}
+
+@media (max-width: 550px) {
+  body {
+    padding: 16px;
+    align-items: flex-start;
+  }
+  
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+    gap: 16px;
+    height: auto;
+    min-height: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .tile {
+    height: 120px; /* Fixed height on vertical stacked layout */
+  }
+  
+  .tile__label {
+    font-size: 2.2rem;
+  }
+}
