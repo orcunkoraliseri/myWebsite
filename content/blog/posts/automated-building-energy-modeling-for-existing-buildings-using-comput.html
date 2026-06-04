@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automated building energy modeling for existing buildings using computer vision - Orcun Koral Iseri</title>
+  <meta name="description" content="Automated building energy modeling for existing buildings using computer vision">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../../styles.css">
+  <link rel="stylesheet" href="../../../blog.css">
+</head>
+<body>
+  <!-- Sticky top bar with Home Link -->
+  <header class="page-topbar">
+    <a href="../../../index.html" class="back-link">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      home
+    </a>
+  </header>
+
+  <article class="post-article">
+    <a href="../../../blog.html" class="post-allposts">‹ All posts</a>
+    <h1 class="post-article-title">Automated building energy modeling for existing buildings using computer vision</h1>
+    <div class="post-article-meta">Published · May 26, 2020</div>
+    <div class="post-article-labels"><span class="post-label">Conference Paper</span></div>
+    <hr class="post-divider">
+    <div class="post-content">
+Abstract:<br />
+<div>
+<span>Improving the energy efficiency of existing buildings requires energy models that accurately represent the building and quantify various performance measures. Manual energy modeling has been proven to be inefficient, labor-intensive, and error-prone. Therefore, the automation of energy modeling is critical. Existing approaches for 3D geometry extraction using 3D laser scanning are promising, but their high cost and high level of operational expertise prevent their widespread use. Computer vision methods, particularly 3D reconstruction can effectively support the creation of 3D building models. An additional component of energy models is the building envelope's thermal characteristics. IR thermography can be used to determine the thermal transmittance of the external walls with data collection in both visible and thermal bands. This paper presents a method for the semi-automated energy modeling of existing buildings. A conventional structure-from-motion (SfM) pipeline is utilized, which consists of several algorithms that compute a 3D point cloud from the images of the room to be modeled. The system matches the image points of the same scene points on different views by using Scale Invariant Feature Transform (SIFT) features and L2 Cascade Hashing with precomputed hashed regions methods to match the calculated features and perform 3D reconstruction using incremental SfM. Following, the two cameras are calibrated, after which each point in the point cloud is matched with the corresponding temperature measured by a thermal camera after using the intrinsic and extrinsic parameters of the optical and thermographic cameras. A planar surface representing each surface is calculated, and the elimination of objects other than building surfaces are performed by a Random Sample Consensus (RANSAC) algorithm. Finally, thermal transmittance values of the outer walls are calculated using the measured surface temperatures. The results are validated in two steps. The first step calculates the difference between the geometry of the 3D ground truth model of the actual room and the generated 3d model. The second step is a comparative analysis between the calculated energy use of two energy models (using Energyplus) constructed with different methods: the manual method (using as-built drawings and theoretical thermal transmittance values) and the proposed method. The difference between the simulation results of these two models is finally comparatively analyzed. The initial results are expected to be indicative of the benefits of using semi-automated methods of energy model construction for existing buildings.</span></div>
+<div>
+<span><br /></span></div>
+<div>
+<span>Authors:</span></div>
+<div>
+<span><span>Ipek Gürsel Dino, Esat Kalfaoğlu, Alp Eren Sarı, Şahin Akın, Orçun Koral İşeri, A. Aydın Alatan, Sinan Kalkan,&nbsp; Bilge Erdoğan</span></span></div>
+<div>
+<span><span><br /></span></span></div>
+<div>
+<a target="_blank" rel="noopener" href="https://www.researchgate.net/publication/335947886_Automated_building_energy_modeling_for_existing_buildings_using_computer_vision">https://www.researchgate.net/publication/335947886_Automated_building_energy_modeling_for_existing_buildings_using_computer_vision</a><br />
+<br />
+<div>
+<a target="_blank" rel="noopener" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD-g2A6iboVWnefapg8cZG7oGDpfSU44WeNExASddXM0Vxy7CcQlrlQ8pF5dWtpVh2RCXFOX4Ra9eZOvowaGB8Lb4nTqWzWWspOBCL4U2speTYDsCs75IsY3ktso_fJSHtEvaBz26riqW5/s1600/Untitled+drawing.png"><img loading="lazy" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhD-g2A6iboVWnefapg8cZG7oGDpfSU44WeNExASddXM0Vxy7CcQlrlQ8pF5dWtpVh2RCXFOX4Ra9eZOvowaGB8Lb4nTqWzWWspOBCL4U2speTYDsCs75IsY3ktso_fJSHtEvaBz26riqW5/s400/Untitled+drawing.png" /></a></div>
+<br /></div>
+    </div>
+    <hr class="post-divider">
+    <a href="../../../blog.html" class="post-allposts">‹ All posts</a>
+  </article>
+</body>
+</html>

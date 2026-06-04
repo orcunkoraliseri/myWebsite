@@ -10,7 +10,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-dark);
   padding: 24px 40px;
-  overflow-y: auto;
+  overflow: visible;
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
 }
@@ -24,12 +24,22 @@ body {
   color: var(--text-muted);
   font-weight: 500;
   font-size: 1.1rem;
-  margin-bottom: 16px;
+  margin-bottom: 0;
   transition: color 0.2s;
 }
 
 .back-link:hover {
   color: var(--theme-color-dark);
+}
+
+/* Sticky Top Bar (home button stays pinned) */
+.page-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--bg-color);
+  padding: 14px 0;
+  margin-bottom: 12px;
 }
 
 /* Main Container */
