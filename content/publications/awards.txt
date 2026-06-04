@@ -1,0 +1,18 @@
+﻿Awards
+
+
+Award Title
+	Year
+	Associated Work
+	Authors
+	Event / Venue
+	Best Student Paper
+	2020
+	An Algorithm for Efficient Urban Building Energy Modeling and Simulation
+	Iseri, O. K., & Dino, I. G.
+	SIMAUD (11th Annual Symposium on Simulation for Architecture and Urban Design)
+	Young Caadria Award
+	2022
+	Compiling Open Datasets to Improve Urban Building Energy Models with Occupancy and Layout Data
+	Duran, A., Iseri, O. K., Akgül, C. M., Kalkan, S., & Dino, I. G.
+	POST-CARBON, CAADRIA 2022

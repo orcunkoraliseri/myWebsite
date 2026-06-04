@@ -1,6 +1,7 @@
 # Dependency directories
 node_modules/
 
-# OS metadata
+# OS metadata / IDEs
 .DS_Store
 Thumbs.db
+.idea/
