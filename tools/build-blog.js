@@ -71,6 +71,21 @@ function normalizeContent(html, imgMap) {
       const local = imgMap[url];
       return local ? `${pre}img/${local}${post}` : m;
     });
+    // any anchor still pointing remote that wraps an already-localized image →
+    // point it at that local image (full-res URL variants not in the map)
+    h = h.replace(/(<a\b[^>]*\bhref=")https?:\/\/[^"]*googleusercontent[^"]*("[^>]*>\s*<img\b[^>]*\bsrc=")(img\/[^"]+)(")/gi,
+      (m, p1, p2, local, p4) => `${p1}${local}${p2}${local}${p4}`);
+    // final fallback: any leftover googleusercontent URL (e.g. a bare text link to
+    // a full-res variant) whose trailing filename matches a downloaded file
+    const localFiles = new Set(Object.values(imgMap));
+    h = h.replace(/https?:\/\/[^"'\s<>]*googleusercontent[^"'\s<>]*\/([^\/"'\s<>]+\.(?:jpe?g|png|gif|webp))/gi, (m, fname) => {
+      let seg = decodeURIComponent(fname.replace(/\+/g, ' ')).replace(/[^a-zA-Z0-9._-]/g, '_');
+      const ext = (seg.match(/(\.[a-z0-9]+)$/i) || [])[1] || '';
+      let stem = ext ? seg.slice(0, -ext.length) : seg;
+      if (stem.length > 50) stem = stem.slice(0, 50);
+      seg = stem + ext;
+      return localFiles.has(seg) ? `img/${seg}` : m;
+    });
   }
   // lazy-load images
   h = h.replace(/<img\b/gi, '<img loading="lazy"');
