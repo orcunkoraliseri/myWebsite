@@ -188,7 +188,9 @@ function card(p) {
     ? `<img src="${thumb}" alt="" class="post-thumb" loading="lazy">`
     : `<div class="post-thumb post-thumb--empty"></div>`;
   const labels = p.labels.slice(0, 6).map(l => `<span class="post-label">${escapeHtml(l)}</span>`).join('');
-  return `    <a class="post-card hidden-section" href="content/blog/posts/${p.slug}.html">
+  const year = p.published.slice(0, 4);
+  const search = escapeHtml((p.title + ' ' + p.labels.join(' ')).toLowerCase());
+  return `    <a class="post-card hidden-section" href="content/blog/posts/${p.slug}.html" data-year="${year}" data-search="${search}">
       <div class="post-thumb-col">${thumbHtml}</div>
       <div class="post-card-body">
         <h3 class="post-card-title">${escapeHtml(p.title)}</h3>
@@ -197,6 +199,13 @@ function card(p) {
       </div>
     </a>`;
 }
+
+const years = [...new Set(posts.map(p => p.published.slice(0, 4)))].sort((a, b) => b.localeCompare(a));
+const yearCounts = {};
+posts.forEach(p => { const y = p.published.slice(0, 4); yearCounts[y] = (yearCounts[y] || 0) + 1; });
+const yearChips = years.map(y =>
+  `        <button type="button" class="year-chip" data-year="${y}">${y} <span class="year-count">${yearCounts[y]}</span></button>`
+).join('\n');
 
 const indexHtml = `<!DOCTYPE html>
 <html lang="en">
@@ -221,7 +230,15 @@ const indexHtml = `<!DOCTYPE html>
   </header>
 
   <main class="blog-container">
+    <div class="blog-filters">
+      <input type="search" id="blog-search" class="blog-search" placeholder="Search posts…" aria-label="Search posts">
+      <div class="year-chips" id="year-chips">
+        <button type="button" class="year-chip is-active" data-year="all">All <span class="year-count">${posts.length}</span></button>
+${yearChips}
+      </div>
+    </div>
 ${posts.map(card).join('\n')}
+    <p class="blog-noresults" id="blog-noresults" hidden>No posts match your search.</p>
   </main>
 
   <script src="blog.js"></script>

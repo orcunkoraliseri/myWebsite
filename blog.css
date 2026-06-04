@@ -53,6 +53,82 @@ body {
   gap: 16px;
 }
 
+/* ---- Filter bar (search + year chips) ---- */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 4px;
+}
+
+.blog-search {
+  flex: 1 1 240px;
+  max-width: 340px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  padding: 9px 16px;
+  border: 1px solid #d7d7d7;
+  border-radius: 50px;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.blog-search::placeholder {
+  color: #9a9aa3;
+}
+
+.blog-search:focus {
+  border-color: var(--theme-color);
+  box-shadow: 0 0 0 3px rgba(53, 152, 219, 0.15);
+}
+
+.year-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.year-chip {
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: white;
+  border: 1px solid #d7d7d7;
+  border-radius: 50px;
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.year-chip:hover {
+  border-color: var(--theme-color);
+  color: var(--theme-color-dark);
+}
+
+.year-chip.is-active {
+  background: var(--theme-color);
+  border-color: var(--theme-color);
+  color: white;
+}
+
+.year-chip .year-count {
+  opacity: 0.7;
+  font-weight: 500;
+  font-size: 0.78rem;
+}
+
+.blog-noresults {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 1rem;
+  padding: 32px 0;
+}
+
 .post-card {
   background: white;
   border-radius: 24px;

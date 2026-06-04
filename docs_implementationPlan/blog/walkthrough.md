@@ -37,7 +37,14 @@ The Blog has been fully implemented from the Blogger/Takeout export — an index
 ## Regenerating
 If the export is refreshed: re-run `node tools/localize-blog-images.js` (re-downloads images + map) then `node tools/build-blog.js` (rebuilds index + post pages). Running only `build-blog.js` reuses the existing `img-map.json`.
 
+## Filter bar (search + year)
+A lightweight client-side filter bar sits at the top of `blog.html`:
+- **Search box** — filters the list live as you type, matching each post's title **and** labels (`data-search`).
+- **Year chips** — `All (46)` plus one chip per year that has posts: 2025, 2024, 2022, 2020, 2019, 2018, 2017 (2021 & 2023 have no posts, so they're omitted). Each chip shows its post count; the active chip is highlighted blue.
+- Search and year combine (e.g. "energy" + 2020). A `No posts match your search.` message shows when nothing matches.
+- All client-side (no fetch); logic lives in `blog.js`, styles in `blog.css`, and the markup is emitted by the generator so it survives regeneration.
+
+> The raw Blogger tag filter was deliberately **not** reproduced — the export has **242 unique labels (195 used on a single post)**, which would be overwhelming clutter. Search + year covers find-a-post needs cleanly.
+
 ## Notes / options
-- **Plain newest-first list, no filter bar** — chosen to match the Education/Experience/Publications style you referenced (cards still show label pills).
-- The screenshot's "All (46)" label filter was intentionally left out; it can be added later as a lightweight client-side filter if you want it.
 - All 46 posts are included (including the early 2017 daily lecture notes). Say the word if you'd like any excluded.
