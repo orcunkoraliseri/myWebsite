@@ -1,0 +1,346 @@
+/* Base / Variables matching index */
+:root {
+  --orange: rgba(240, 95, 51, 1);
+  --bg-color: rgba(248, 248, 246, 1);
+  --text-dark: #1a1a24;
+  --text-muted: #5a5a66;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-dark);
+  padding: 24px 40px;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+/* Back Link */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+
+.back-link:hover {
+  color: var(--orange);
+}
+
+/* Main Container - single column stacked layout */
+.about-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Shared Card Style */
+.card {
+  background: white;
+  border-radius: 24px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+/* ===========================
+   Band 1: Photo Mosaic (compact strip)
+   =========================== */
+.mosaic-band {
+  background: white;
+  border-radius: 20px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.photo-mosaic {
+  display: grid;
+  grid-template-columns: repeat(14, 1fr);
+  gap: 6px;
+  width: 100%;
+}
+
+.mosaic-img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 6px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.mosaic-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  z-index: 10;
+  position: relative;
+}
+
+/* ===========================
+   Section 2: Identity / Name
+   =========================== */
+.identity-card {
+  text-align: center;
+}
+
+.hero-name {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+  line-height: 1.2;
+}
+
+.hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 2px;
+}
+
+.hero-affiliation {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.hero-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.hero-contact a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.hero-contact a:hover {
+  color: var(--orange);
+}
+
+.contact-divider {
+  color: #d0d0d0;
+  font-weight: 300;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-cv {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--orange);
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.btn-cv:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(240, 95, 51, 0.3);
+  background-color: #e65228;
+}
+
+/* Social Icons */
+.social-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.social-icon {
+  color: #a0a0ab;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--orange);
+  transform: scale(1.15) translateY(-3px);
+}
+
+/* ===========================
+   Section 3: Research Focus
+   =========================== */
+.section-title {
+  font-family: 'Caveat', cursive;
+  font-size: 2rem;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+/* ===========================
+   Band 2: Middle Row (Hero + Research Focus)
+   =========================== */
+.middle-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.middle-row .identity-card {
+  flex: 1;
+  text-align: left;
+}
+
+.middle-row .hero-contact {
+  justify-content: flex-start;
+}
+
+.middle-row .hero-actions {
+  justify-content: flex-start;
+}
+
+.middle-row .lang-badges {
+  justify-content: flex-start;
+  margin-top: 12px;
+}
+
+/* Content Row for Side-by-Side */
+.content-row {
+  display: flex;
+  gap: 16px;
+  align-items: stretch;
+}
+
+.research-card {
+  flex: 1.3;
+  border-left: 6px solid var(--orange);
+}
+
+.focus-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.focus-list li {
+  background: var(--bg-color);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid #e0e0e0;
+}
+
+/* ===========================
+   Band 3: Background
+   =========================== */
+.bio-card {
+  border-left: 6px solid var(--orange);
+}
+
+.bio-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 32px;
+}
+
+.bio-card p {
+  margin-bottom: 0;
+}
+
+/* ===========================
+   Section 5: Languages
+   =========================== */
+.lang-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.badge {
+  background: var(--bg-color);
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  border: 1px solid #e0e0e0;
+}
+
+/* ===========================
+   Scroll Animations
+   =========================== */
+.hidden-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.show-section {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 768px) {
+  body {
+    padding: 16px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .photo-mosaic {
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .middle-row {
+    flex-direction: column;
+  }
+
+  .content-row {
+    flex-direction: column;
+  }
+
+  .bio-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-contact {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact-divider {
+    display: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    gap: 16px;
+  }
+}
