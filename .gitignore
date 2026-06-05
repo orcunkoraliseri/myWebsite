@@ -5,3 +5,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 .idea/
+
+# Dev-only mobile preview artifacts (see docs_implementationPlan/mobile)
+mobile-shots/
+server.log

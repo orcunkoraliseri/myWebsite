@@ -36,6 +36,7 @@ function assetVer(relPath) {
 }
 const CSS_VER = assetVer('blog.css');
 const JS_VER = assetVer('blog.js');
+const MOBILE_CSS_VER = assetVer('mobile.css');
 
 // ---------- helpers ----------
 function decodeEntities(s) {
@@ -163,6 +164,7 @@ function postPage(p) {
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../../styles.css">
   <link rel="stylesheet" href="../../../blog.css?v=${CSS_VER}">
+  <link rel="stylesheet" href="../../../mobile.css?v=${MOBILE_CSS_VER}">
 </head>
 <body>
   <!-- Sticky top bar with Home Link -->
@@ -233,6 +235,7 @@ const indexHtml = `<!DOCTYPE html>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="blog.css?v=${CSS_VER}">
+  <link rel="stylesheet" href="mobile.css?v=${MOBILE_CSS_VER}">
 </head>
 <body>
   <!-- Sticky top bar with Home Link -->

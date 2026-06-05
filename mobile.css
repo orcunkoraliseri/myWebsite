@@ -1,0 +1,59 @@
+/* ============================================================================
+   mobile.css — mobile-only refinements for the content pages + blog posts.
+   Linked AFTER each page's own stylesheet.
+
+   EVERY rule lives inside @media (max-width: 768px), so at tablet/desktop widths
+   this file is completely inert — the desktop layouts are unchanged.
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+  /* ---- Correctness: prevent horizontal overflow ----
+     Content pages inherit display:flex (home-grid centering) from styles.css;
+     reset to normal block flow so the topbar + main don't form an off-centre
+     row that overflows on narrow phones. */
+  body { display: block; }
+  html, body { overflow-x: clip; }   /* safety net; clip (not hidden) keeps the sticky topbar working */
+
+  /* Long bare URLs and wide tables in blog posts must not stretch the page. */
+  .post-content { overflow-wrap: break-word; }
+  .post-content a { overflow-wrap: anywhere; }
+  .post-content table { display: block; overflow-x: auto; }
+
+  /* ---- About: photo mosaic -> swipeable horizontal strip ---- */
+  .photo-mosaic {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+    -webkit-overflow-scrolling: touch;
+  }
+  .photo-mosaic .mosaic-img {
+    flex: 0 0 auto;
+    width: 132px;
+    height: 132px;
+    aspect-ratio: auto;
+    scroll-snap-align: start;
+  }
+
+  /* ---- Progressive disclosure: "Show more / less" (toggles injected by mobile.js) ---- */
+  .m-collapsed { display: none !important; }
+  .m-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 7px 16px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #444;
+    background: rgba(0, 0, 0, 0.035);
+    border: 1px solid #d9d9d9;
+    border-radius: 50px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .m-toggle:hover { background: rgba(0, 0, 0, 0.06); }
+}
