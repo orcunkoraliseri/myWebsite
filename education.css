@@ -198,6 +198,29 @@ body {
   font-weight: 600;
 }
 
+/* Thesis Button */
+.thesis-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 4px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--theme-color);
+  background-color: rgba(20, 199, 222, 0.1);
+  color: var(--theme-color-dark);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.thesis-btn:hover {
+  background-color: var(--theme-color);
+  color: var(--text-dark);
+  transform: translateY(-1px);
+}
+
 /* ===========================
    Scroll Animations
    =========================== */
