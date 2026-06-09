@@ -236,6 +236,31 @@ body {
   transform: translateY(-1px);
 }
 
+/* Blog Post Button */
+.blog-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  margin-left: 8px;
+  padding: 4px 14px;
+  border-radius: 50px;
+  border: 1px solid #b0b0be;
+  background-color: rgba(90, 90, 102, 0.06);
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.blog-btn:hover {
+  background-color: rgba(90, 90, 102, 0.13);
+  border-color: var(--text-muted);
+  color: var(--text-dark);
+  transform: translateY(-1px);
+}
+
 /* ===========================
    Scroll Animations
    =========================== */
