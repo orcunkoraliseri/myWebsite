@@ -180,6 +180,35 @@ body {
   margin-bottom: 0;
 }
 
+/* Reference Links */
+.exp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.exp-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 50px;
+  border: 1px solid var(--theme-color);
+  background-color: rgba(180, 4, 149, 0.08);
+  color: var(--theme-color);
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.exp-link-btn:hover {
+  background-color: var(--theme-color);
+  color: white;
+  transform: translateY(-1px);
+}
+
 /* ===========================
    Scroll Animations
    =========================== */

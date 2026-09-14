@@ -130,3 +130,29 @@ The yellow/gold tile on `index.html` (currently `#experience`) must be updated t
 - Hover animation works on each card
 - Back link returns to `index.html`
 - Responsive at 768px: icon stacks above content
+
+---
+
+## v2 Addition — Bachelor's Internship (2026-09-14)
+
+> **Goal**: Add the user's bachelor-era architecture internship at a heritage-restoration practice, sourced from `ozgecmis_orcunkoraliseri.pdf` / `Portfolio_OrcunKoralIseri.pdf` (CV: "Mita Mimarlık and Restoration", 2015 summer).
+
+### New Entry — Internship, Summer 2015
+
+| Field | Value |
+|---|---|
+| Role pill | Internship |
+| Focus pill | Heritage Restoration & Conservation |
+| Timeline | Summer 2015 |
+| Institution | Mita Mimarlık ve Restorasyon (Mita Architecture & Restoration), İzmir, Turkey |
+| Icon | `content/experience/reseacher.png` (matches other non-teaching professional roles) |
+| Bullets | Architecture internship at a practice specializing in the restoration and conservation of heritage buildings in İzmir · Assisted with survey, documentation, and design work on historic building restoration projects |
+| Reference links | Firm profile (Wikimapia) · Principal architect — İzmir Chamber of Architects (izmimod.org.tr) |
+
+Chronological position: inserted as the final (10th) card, after the Yaşar University Lecturer entry (2018–2019), since Summer 2015 is the earliest date on the page.
+
+#### [MODIFY] [experience.html](file:///c:/Users/o_iseri/Desktop/myWebsıte/experience.html)
+- Add Entry 10 (internship card) after Entry 9, with two `.exp-link-btn` reference links.
+
+#### [MODIFY] [experience.css](file:///c:/Users/o_iseri/Desktop/myWebsıte/experience.css)
+- Add `.exp-link-btn` (+ container) styled like `education.css`'s `.thesis-btn`, using the page's own `--theme-color`.

@@ -198,6 +198,18 @@ body {
   font-weight: 600;
 }
 
+/* Reference Links Row (multiple thesis-btn links in one card) */
+.edu-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.edu-links .thesis-btn {
+  margin-top: 0;
+}
+
 /* Thesis Button */
 .thesis-btn {
   display: inline-flex;

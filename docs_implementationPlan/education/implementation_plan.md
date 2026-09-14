@@ -165,3 +165,25 @@ All source files at root: `C:\Users\o_iseri\Desktop\myWebsıte\`
 - Scroll triggers the fade-in / slide-up entrance animation
 - Back link returns to `index.html`
 - Responsive at 768px: icon stacks above content, header stacks vertically
+
+---
+
+## v2 Addition — Design Village İzmir (2026-09-14)
+
+> **Goal**: Surface the user's student-organized workshop/exhibition, "Tasarım Köyü İzmir" (Design Village İzmir), run during the Bachelor's years (CV: "Tasarım Köyü İzmir, Umob 15" — July 2015; "Tasarım Köyü İzmir, 2016" — August 2016).
+
+### Change — Bachelor Card (Entry 3)
+
+Rather than a new card (this was extracurricular, not a separate credential), extend the existing Bachelor entry:
+
+| Field | Addition |
+|---|---|
+| New bullets | Co-organized *Tasarım Köyü İzmir* (Design Village İzmir), a student-run interdisciplinary summer design workshop and exhibition — editions in 2015 (Umob 15) and 2016 · Exhibition later featured at İzmir Mimarlık Merkezi (İzmir Chamber of Architects) |
+| Reference links | Design Village İzmir (sosyaltasarimplatformu.com) · Exhibition coverage (izmimod.org.tr) · Facebook page |
+
+#### [MODIFY] [education.html](file:///c:/Users/o_iseri/Desktop/myWebsıte/education.html)
+- Add 2 bullets to Entry 3 (Bachelor) `.edu-bullets`
+- Add an `.edu-links` row below the bullets with 3 `.thesis-btn`-style anchors (reusing the existing class, since it's already a generic pill-link style, not thesis-specific in practice)
+
+#### [MODIFY] [education.css](file:///c:/Users/o_iseri/Desktop/myWebsıte/education.css)
+- Add `.edu-links` (flex row, `gap`) so a card can hold multiple `.thesis-btn` links instead of just one
