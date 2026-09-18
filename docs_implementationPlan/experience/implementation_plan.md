@@ -156,3 +156,26 @@ Chronological position: inserted as the final (10th) card, after the Yaşar Univ
 
 #### [MODIFY] [experience.css](file:///c:/Users/o_iseri/Desktop/myWebsıte/experience.css)
 - Add `.exp-link-btn` (+ container) styled like `education.css`'s `.thesis-btn`, using the page's own `--theme-color`.
+
+---
+
+## v3 Addition — Tasarım Köyü İzmir Organizing (2026-09-18)
+
+> **Goal**: List the Tasarım Köyü İzmir (Design Village İzmir) organizing role as professional experience, not only as a bullet under the Bachelor's entry in `education.html`. The user was one of the organizers of the 2015 (ÜMOB'15) and 2016 editions and acted as site manager.
+
+### New Entry — Organizer & Site Manager, 2015 – 2016
+
+| Field | Value |
+|---|---|
+| Role pill | Organizer & Site Manager |
+| Focus pill | Event Organization & Logistics |
+| Timeline | 2015 – 2016 — year-round planning, ~1 month of on-site settlement, then the event (2015: Jul 27 – Aug 3, Düzce Köyü; 2016: Aug 27 – Sep 5, Turgutköyü — both Seferihisar) |
+| Institution | Tasarım Köyü İzmir (Design Village İzmir), Seferihisar, İzmir, Turkey |
+| Icon | `content/experience/reseacher.png` (same as the other non-teaching roles) |
+| Bullets | Co-organized the student-run design village (2015 = ÜMOB'15, 2016 independent) · Year-round project planning + ~1 month of on-site settlement/preparation per edition · 10+ workshops for 120–150 students from across Turkey per edition · Site manager: on-site operations + liaison with municipalities, military, police, and sponsor companies · 2018 exhibition at İzmir Mimarlık Merkezi |
+| Reference links | Blog: 2015 edition · Blog: 2016 edition · Sosyal Tasarım Platformu · Exhibition coverage (izmimod.org.tr) |
+
+Chronological position: inserted as Entry 10, before the Summer 2015 internship (now Entry 11), since the organizing role ends later (2016). The Bachelor's bullet in `education.html` is kept as-is.
+
+#### [MODIFY] [experience.html](file:///c:/Users/o_iseri/Desktop/myWebsıte/experience.html)
+- Add the Tasarım Köyü İzmir card before the internship card, reusing the existing `.exp-links` / `.exp-link-btn` styles (no CSS change).
