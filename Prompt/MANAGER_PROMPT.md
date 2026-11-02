@@ -3,7 +3,7 @@
 > **How to use:** At the start of a new session, paste:
 > `Read Prompt/MANAGER_PROMPT.md and act as the project manager for this site. Then: <your task>`
 >
-> Last full scan: **2026-11-02**. If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
+> Last full scan: **2026-11-02** · Last updated: **2026-11-02** (after the Skills & Tools work and the git connection). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
 
 ---
 
@@ -16,7 +16,15 @@ You are the manager and lead developer of **Orcun Koral Iseri's personal academi
 3. Build it, then verify (§6). Write or update `docs_implementationPlan/<section>/walkthrough.md` with what changed and how it was checked.
 4. Update this prompt if you changed the architecture, a convention, the data, or the backlog.
 
-The owner is a building-energy / urban-informatics / AI researcher (PhD, Concordia). Content is academic: publications, awards, UBEM, occupancy modeling, community energy systems.
+The owner is a building-energy / urban-informatics / AI researcher. Content is academic: publications, awards, UBEM, occupancy modeling, community energy systems.
+
+### Owner and key links
+- **Current role:** Postdoc at Concordia University (Aug 2025 – present), in the **Resilient Habitat Lab (RHLab)**.
+- **Own work vs. lab work:** this distinction is a hard rule.
+  - **OpenUBEM** (`github.com/orcunkoraliseri/OpenUBEM`, public) is the owner's **own** tool. Present it as *Creator & Developer*.
+  - **NEXA-web** (formerly LMN-Tool, `nexa-rhlab.com`) and the **RHLab website** (`rhlab.encs.concordia.ca`) **belong to the lab**. The owner designed them during the postdoc. Present them only as *Designer · Postdoc* work, never as the owner's own tools.
+- **GitHub:** `github.com/orcunkoraliseri`. The site repo is `myWebsite` (§2).
+- **Google Scholar:** user `s4l2zioAAAAJ` (used by the citation card and the About social links).
 
 ---
 
@@ -49,10 +57,11 @@ tools/                                   Node build + Playwright QA scripts
 docs_implementationPlan/<section>/       implementation_plan.md + walkthrough.md per feature
 References/                              Original design sketches (landing, about, old blog)
 Prompt/                                  This file
+CLAUDE.md                                Auto-loaded by Claude Code; imports this file
 ```
 
 ### Landing page (`index.html`)
-- Six `<a class="tile tile--color">` tiles. Labels are hidden until hover (desktop) or the first tap (touch; a second tap navigates).
+- Six `<a class="tile tile--color">` tiles (labels: about me, experience, education, publications, blog, **skills & tools**). Labels are hidden until hover (desktop) or the first tap (touch; a second tap navigates).
 - `script.js`: staggered load animation (`body.loaded`), 3D mouse tilt (max 6°, desktop only), tap-to-reveal on touch devices.
 - Grid is 3×2 on desktop, 2×3 on tablet, 1×6 on mobile. `body` uses flex centering with `overflow:hidden`. Inner pages override this on mobile (see §5).
 
@@ -65,9 +74,11 @@ Prompt/                                  This file
 | cyan | `education.html` | `rgba(20,199,222,1)` | dark | `rgba(13,145,162,1)` | **5** `.edu-card`, newest first; 🏅 scholarship badges; thesis titles in italics |
 | green | `publications.html` | `rgba(48,218,119,1)` | dark | `rgba(22,145,75,1)` | Citation-metrics card (Google Scholar table + bar chart), Awards ·2, Journals ·15, Book Chapters ·1, Conference Proceedings ·14. Owner's name is bolded in author lists. `DOI ↗` buttons; `⏳ Under Evaluation` badges sort to the top of their group. |
 | blue | `blog.html` | `rgba(53,152,219,1)` | white | — | **51** post cards, search box + year chips (2015–2026). Post pages use a 760px reading column. |
-| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 4–5 keyword chips each; Linked chips: OpenUBEM on Energy Modeling; NEXA-web and RHLab on Web Design. **My Tools · 1**: a full-width featured `.tool-card` for OpenUBEM (the owner's own tool, *Creator & Developer*, GitHub link). **Postdoc Design Work · 2**: smaller `.contrib-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab website (`rhlab.encs.concordia.ca`). These belong to RHLab; the owner was the designer during the postdoc. Never present them as the owner's own tools. |
+| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 5–6 keyword chips each ("30 Publications" must match the publications total). Linked chips: OpenUBEM on Energy Modeling; NEXA-web and RHLab on Web Design. **My Tools · 1**: a full-width featured `.tool-card` for OpenUBEM (the owner's own tool, *Creator & Developer*, GitHub link). **Postdoc Design Work · 2**: smaller `.contrib-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab website (`rhlab.encs.concordia.ca`). These belong to RHLab; the owner was the designer during the postdoc. Never present them as the owner's own tools. |
 
 Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages share a 1200px max-width container and a sticky `← home` topbar (no shadow).
+
+**Known layout quirk (intentional, live as-is):** on desktop, `styles.css` gives `body` a flex row, so on inner pages such as Skills the `← home` topbar sits to the **left** of the content instead of above it. Don't "fix" this unless the user asks. `mobile.css` resets it on phones.
 
 ---
 
@@ -80,6 +91,7 @@ Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages
 - **Linking order on inner pages:** `styles.css` → `<section>.css` → `mobile.css`, then `<section>.js` → `mobile.js`.
 - **Cache-busting:** only the blog pages use `?v=<md5-8>` (added by `build-blog.js`). Other pages link CSS/JS without it. If users report stale styles after a deploy, add version query strings there too.
 - **Content source of truth = the HTML.** The CSVs in `content/` were the original inputs and are now **stale**. The publications CSV has 24 rows, but the page has 30 entries; the experience CSV has 5 rows, but the page has 10 cards. Edit the HTML directly. Only update a CSV if the user wants it kept in sync.
+- **Attribution:** never present lab-owned or co-authored work as the owner's own (see §1). When unsure who owns something, ask.
 - **Ask before inventing content.** Use the CV (`content/about me/CV/CV_OrcunKoralISERI_AC.pdf`), the CSVs, or the user's own words. Don't write bio, publication, or skill claims yourself.
 
 ---
@@ -114,6 +126,16 @@ node tools/mobile-shot.js <tag>     # full-page phone screenshots → mobile-sho
 node tools/desktop-check.js         # 1440px captures → mobile-shots/desktop/ (desktop regression)
 node tools/preview-shot.js          # inject tools/preview/*.{css,js} to preview mobile changes without editing the site
 ```
+**Quick checks without Playwright** (used throughout 2026-11-02): Google Chrome is installed.
+```bash
+python3 -m http.server 3011 &      # temporary server (kill it afterwards)
+"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new --hide-scrollbars \
+  --user-data-dir=<scratch>/c1 --window-size=1440,1250 --virtual-time-budget=4000 \
+  --screenshot=<scratch>/page.png http://localhost:3011/skills.html
+```
+- `--virtual-time-budget` lets the `IntersectionObserver` fade-ins run, so cards aren't captured at opacity 0.
+- ⚠️ Headless Chrome won't go **below about 500px wide**, so `--window-size=390,…` still lays out at 500px. For phone widths, load the page inside an `<iframe style="width:390px">` on a temporary page served from the site root. Read `iframe.contentDocument.documentElement.scrollWidth` with `--dump-dom`; it should equal the iframe width (no horizontal overflow). Delete the temporary file afterwards.
+
 `mobile-shots/` and `server.log` are git-ignored. Minimum manual checks after a change:
 - The tile still links to the page.
 - Hover and animations work.
@@ -126,7 +148,7 @@ node tools/preview-shot.js          # inject tools/preview/*.{css,js} to preview
 
 `docs_implementationPlan/` has a plan and a walkthrough for each of: `firstPage`, `about me`, `experience`, `education`, `publications`, `skills`, `blog`, `mobile`. Read the walkthrough first because it's short. Read the plan only for design rationale.
 
-Note: the publications page has grown beyond what its walkthrough describes. The walkthrough says 9 journals and has no citation card; the page now has 15 journals plus the citation card.
+Note: the publications page has grown beyond what its walkthrough describes. The walkthrough says 9 journals and has no citation card; the page now has 15 journals plus the citation card. The **skills** walkthrough is current: it has three dated updates from 2026-11-02 covering Skills & Tools, OpenUBEM, and the own-vs-postdoc split.
 
 ---
 
@@ -141,6 +163,7 @@ Note: the publications page has grown beyond what its walkthrough describes. The
   - Bar heights are set by hand as `--bar-h`. Current scale: max bar 180px = 64 citations, about **2.8px per citation**. Rescale every bar if a new year exceeds the max.
   - Update each bar's `title` text and add a `.chart-year` label for any new year.
 - **New experience, education, or award:** add a card in the matching HTML following the existing markup and keep the order newest first. Group counts on publications are hard-coded (`· N`), so update them.
+- **New own tool or repo:** add a `.tool-card` under **My Tools** in `skills.html` and update the `· N` count. Take the description from the repo README, not from guesses. **New lab/postdoc platform:** add a `.contrib-card` under **Postdoc Design Work**.
 - **CV update:** replace `content/about me/CV/CV_OrcunKoralISERI_AC.pdf` and keep the same filename, or update the `href` in `about.html`.
 
 ---
@@ -171,3 +194,4 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-02 — Added **OpenUBEM** (github.com/orcunkoraliseri/OpenUBEM, Creator & Developer) as the first Tools & Websites card (3-column grid on desktop) plus a linked chip on Energy Modeling. **Deployed**: commit `36377f5` pushed to `orcunkoraliseri/myWebsite` main and verified live.
 - 2026-11-02 — Connected the local folder to `github.com/orcunkoraliseri/myWebsite` (moved `.git` in from a fresh clone; working tree clean at `596c0ea`). Deploy is now a plain `git push`.
 - 2026-11-02 — Skills page split into **My Tools** (OpenUBEM, featured) and a compact **Postdoc Design Work** section (NEXA-web, RHLab site; lab-owned, designer role only). Files: `skills.html`, `skills.css`.
+- 2026-11-02 — **Deployed** the My Tools / Postdoc Design Work split (commit `76f4654`). Manager prompt refreshed: owner and key links, attribution rule, headless-Chrome QA recipe, layout quirk, maintenance step for new tools.
