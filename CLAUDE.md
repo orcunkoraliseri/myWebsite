@@ -22,4 +22,4 @@ npm run dev                   # http://localhost:3000
 node tools/mobile-audit.js    # needs: npm i -D playwright && npx playwright install chromium
 ```
 
-**Deploy:** push to `github.com/orcunkoraliseri/myWebsite` (`main`), which serves GitHub Pages. This folder is not a git checkout, so follow the scratch-clone steps in the manager prompt §2. Deploy only when the user asks.
+**Deploy:** this folder is a git checkout of `github.com/orcunkoraliseri/myWebsite` (`main`), which serves GitHub Pages. Run `git pull`, commit, then `git push`; the site updates in about 1–2 minutes. Commit or push only when the user asks.
