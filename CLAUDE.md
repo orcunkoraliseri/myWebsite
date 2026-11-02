@@ -21,3 +21,5 @@ The full project context lives in the manager prompt, which is imported below. R
 npm run dev                   # http://localhost:3000
 node tools/mobile-audit.js    # needs: npm i -D playwright && npx playwright install chromium
 ```
+
+**Deploy:** push to `github.com/orcunkoraliseri/myWebsite` (`main`), which serves GitHub Pages. This folder is not a git checkout, so follow the scratch-clone steps in the manager prompt §2. Deploy only when the user asks.

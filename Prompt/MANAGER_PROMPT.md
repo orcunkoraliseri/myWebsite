@@ -24,7 +24,12 @@ The owner is a building-energy / urban-informatics / AI researcher (PhD, Concord
 
 - **Stack:** Static HTML + CSS + vanilla JS. No framework, no bundler, no runtime dependencies. Fonts: Google Fonts **Inter** (UI) + **Caveat** (handwritten tile labels and page titles).
 - **Hosting:** GitHub Pages with a custom domain (`CNAME` → `www.orcunkoraliseri.com`). Build-script comments mention the "GitHub Pages CDN".
-- ⚠️ **No `.git` in this local folder** (`/Users/orcunkoraliseri/Desktop/myWebsite`). The project was moved from Windows (`C:\Users\o_iseri\Desktop\myWebsıte`), and older docs still use those paths. The public repo **`github.com/orcunkoraliseri/myWebsite`** (last push 2026-09-18) is most likely the Pages source, but confirm with the user before any deploy.
+- ⚠️ **No `.git` in this local folder** (`/Users/orcunkoraliseri/Desktop/myWebsite`). The project was moved from Windows (`C:\Users\o_iseri\Desktop\myWebsıte`), and older docs still use those paths. **Deploy (confirmed 2026-11-02):** the public repo **`github.com/orcunkoraliseri/myWebsite`** (branch `main`) is the GitHub Pages source. A push goes live at www.orcunkoraliseri.com in about 1–2 minutes. Because this folder isn't a git checkout, deploy like this:
+  1. `git clone https://github.com/orcunkoraliseri/myWebsite.git <scratch>/repo` (about 120 MB, takes a couple of minutes).
+  2. `diff -rq --exclude=.git --exclude=.DS_Store <scratch>/repo .` to make sure the remote has no changes you don't have locally. Ignore the `content/blog/Albums/ne olduğunu…` line: it's a Unicode-normalization (NFC/NFD) difference in the folder name, not real changes.
+  3. Copy only the changed files into the clone, commit, and `git push origin main`. HTTPS auth comes from the macOS keychain; SSH is not set up.
+  4. Poll `https://www.orcunkoraliseri.com/<page>?x=$RANDOM` until the change appears.
+  Only deploy when the user asks.
 - **Local server:** `npm run dev` (runs `npx http-server -p 3000`) → http://localhost:3000. Opening `index.html` directly also works, except for the Playwright tools, which need the server.
 - **Node:** v22 is available. **Playwright is not installed** (no `node_modules`, not in `package.json`). If you need the audit or screenshot tools: `npm i -D playwright && npx playwright install chromium`.
 
@@ -58,7 +63,7 @@ Prompt/                                  This file
 | cyan | `education.html` | `rgba(20,199,222,1)` | dark | `rgba(13,145,162,1)` | **5** `.edu-card`, newest first; 🏅 scholarship badges; thesis titles in italics |
 | green | `publications.html` | `rgba(48,218,119,1)` | dark | `rgba(22,145,75,1)` | Citation-metrics card (Google Scholar table + bar chart), Awards ·2, Journals ·15, Book Chapters ·1, Conference Proceedings ·14. Owner's name is bolded in author lists. `DOI ↗` buttons; `⏳ Under Evaluation` badges sort to the top of their group. |
 | blue | `blog.html` | `rgba(53,152,219,1)` | white | — | **51** post cards, search box + year chips (2015–2026). Post pages use a 760px reading column. |
-| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 4–5 keyword chips each; Web Design chips link to NEXA-web and RHLab. **Tools & Websites · 2**: `.tool-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab site (`rhlab.encs.concordia.ca`); the owner is *Designer & Contributor* on both. |
+| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 4–5 keyword chips each; Linked chips: OpenUBEM on Energy Modeling; NEXA-web and RHLab on Web Design. **Tools & Websites · 3**: `.tool-card`s (3 columns on desktop, 1 column at ≤1024px) for OpenUBEM (own tool, *Creator & Developer*, GitHub link), NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab site (`rhlab.encs.concordia.ca`); the owner is *Designer & Contributor* on those two. |
 
 Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages share a 1200px max-width container and a sticky `← home` topbar (no shadow).
 
@@ -144,7 +149,7 @@ Note: the publications page has grown beyond what its walkthrough describes. The
 - [ ] **Mobile Phase 3 polish** (not done): 44px tap targets, `env(safe-area-inset-*)`, `prefers-reduced-motion`, standardized breakpoints, blog "Load more".
 - [ ] **SEO/meta:** `index.html` still has `<title>Personal Portfolio</title>` and a generic description. Add a real title and description, Open Graph tags, and a favicon to all pages (a Blogger `favicon.ico` exists in the export).
 - [ ] **Cache-busting** on non-blog pages (§4).
-- [ ] **Deploy and versioning:** this folder has no git. Confirm the workflow with the user and consider `git init` plus pushing to the Pages repo.
+- [ ] **Deploy and versioning:** this folder has no git, so deploys go through a scratch clone (§2). Suggest converting this folder into a real checkout of the repo to simplify deploys (ask first).
 - [ ] **Cleanup candidates (ask first):** `content/input_temporary/` holds the PDFs of the two 2026 papers, which are already on the site. `.cadence/configs/` is empty.
 - [ ] **Docs drift:** Windows paths in the old docs; the publications walkthrough is outdated.
 - [x] ~~`README.md` is a two-line placeholder.~~ Rewritten 2026-11-02.
@@ -161,3 +166,4 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-02 — Added `CLAUDE.md` (imports this file automatically) and rewrote `README.md`. Backlog item "README is a placeholder" done.
 - 2026-11-02 — Skills page → **Skills & Tools**: new Tools & Websites section (NEXA-web, RHLab), linked Web Design chips, landing tile label renamed. LMN-Tool is now called NEXA-web. Files: `skills.html`, `skills.css`, `index.html`, `docs_implementationPlan/skills/walkthrough.md`.
 - 2026-11-02 — Skills chip "24+ Publications" → "30 Publications" (`skills.html`).
+- 2026-11-02 — Added **OpenUBEM** (github.com/orcunkoraliseri/OpenUBEM, Creator & Developer) as the first Tools & Websites card (3-column grid on desktop) plus a linked chip on Energy Modeling. **Deployed**: commit `36377f5` pushed to `orcunkoraliseri/myWebsite` main and verified live.

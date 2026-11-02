@@ -66,3 +66,10 @@ The Skills page has been fully implemented based on the v1 implementation plan!
 - The domain (registered 2026-10-13 at Namecheap) resolves to `198.54.117.242`, which serves Namecheap's **"Registrant WHOIS contact information verification"** page. HTTPS is refused.
 - **Fix:** the domain owner must verify the registrant email in Namecheap. After that, DNS goes back to the GitHub Pages records; then re-tick "Enforce HTTPS" in the repo's Pages settings.
 - The links on this site need no change once that's done.
+
+## Update 2026-11-02 (2): OpenUBEM
+- Added **OpenUBEM** (`github.com/orcunkoraliseri/OpenUBEM`), the owner's open-source UBEM platform, as the first card in Tools & Websites. Its role pill is *Creator & Developer*; it has tech tags (Python, EnergyPlus, OpenStreetMap, 3D Viewer) and a `View on GitHub ↗` button. The description is taken from the repo README.
+- Added a linked **OpenUBEM ↗** chip at the top of the Energy Modeling card.
+- The tools grid is now **3 columns** on desktop (cards stacked vertically, buttons pinned to the bottom), 1 column with a row layout at ≤1024px, and stacked at ≤768px.
+- Verified: desktop render at 1440px; no horizontal overflow at 320 and 390px.
+- **Deployed** in commit `36377f5` and confirmed live at www.orcunkoraliseri.com/skills.html.
