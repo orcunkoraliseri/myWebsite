@@ -13,7 +13,7 @@ The landing page is a 3×2 grid of colored tiles. Each tile opens one section of
 | 🟦 education | `education.html` | Degrees (PhD → high school), scholarships, thesis titles |
 | 🟩 publications | `publications.html` | Citation metrics, awards, journals, book chapters, conference papers |
 | 🔵 blog | `blog.html` | 51 posts (2015–2026) with search and year filters |
-| 🟨 skills & tools | `skills.html` | Six skill areas, plus research tools and websites designed and contributed to (NEXA-web, Resilient Habitat Lab) |
+| 🟨 skills & tools | `skills.html` | Six skill areas, own tools (OpenUBEM), and postdoc design work (NEXA-web, Resilient Habitat Lab website) |
 
 ## Tech
 

@@ -177,9 +177,8 @@ body {
    =========================== */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 18px;
-  align-items: stretch;
 }
 
 .tool-card {
@@ -189,8 +188,7 @@ body {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
   border-left: 4px solid transparent;
   display: flex;
-  flex-direction: column;
-  gap: 14px;
+  gap: 24px;
   align-items: flex-start;
   transition: transform 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -278,8 +276,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: auto;
-  padding-top: 8px;
+  margin-top: 8px;
 }
 
 .tool-btn {
@@ -298,13 +295,87 @@ body {
   background-color: rgba(253, 214, 4, 0.75);
 }
 
-.tool-btn--ghost {
-  background-color: transparent;
-  border-color: rgba(168, 140, 0, 0.5);
+/* ===========================
+   Postdoc Design Work (compact)
+   =========================== */
+.group-subheader--minor {
+  font-size: 1.05rem;
+  margin-top: 8px;
+  border-bottom-width: 1px;
 }
 
-.tool-btn--ghost:hover {
-  background-color: rgba(253, 214, 4, 0.18);
+.section-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -10px;
+}
+
+.contrib-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.contrib-card {
+  background: white;
+  border-radius: 16px;
+  padding: 14px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+  border-left: 3px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  transition: border-left-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contrib-card:hover {
+  border-left-color: var(--theme-color);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+}
+
+.contrib-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.contrib-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.contrib-role {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid rgba(168, 140, 0, 0.4);
+  border-radius: 50px;
+  padding: 1px 8px;
+}
+
+.contrib-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.contrib-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.contrib-links a {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--theme-color-dark);
+  text-decoration: none;
+}
+
+.contrib-links a:hover {
+  text-decoration: underline;
 }
 
 /* ===========================
@@ -329,13 +400,8 @@ body {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .tools-grid {
+  .contrib-grid {
     grid-template-columns: 1fr;
-  }
-
-  .tool-card {
-    flex-direction: row;
-    gap: 20px;
   }
 }
 

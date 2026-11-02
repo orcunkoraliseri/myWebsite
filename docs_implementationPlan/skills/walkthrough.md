@@ -73,3 +73,10 @@ The Skills page has been fully implemented based on the v1 implementation plan!
 - The tools grid is now **3 columns** on desktop (cards stacked vertically, buttons pinned to the bottom), 1 column with a row layout at ≤1024px, and stacked at ≤768px.
 - Verified: desktop render at 1440px; no horizontal overflow at 320 and 390px.
 - **Deployed** in commit `36377f5` and confirmed live at www.orcunkoraliseri.com/skills.html.
+
+## Update 2026-11-02 (3): Own tools vs. postdoc work
+NEXA-web and the RHLab website were designed during the postdoc and belong to the lab. Only OpenUBEM is the owner's own tool, so the section is now split:
+- **My Tools · 1**: OpenUBEM as a full-width featured `.tool-card` (icon left, content right; stacks at ≤768px).
+- **Postdoc Design Work · 2**: a smaller sub-header (`.group-subheader--minor`), a one-line note ("Web platforms designed during my postdoc at the Resilient Habitat Lab, Concordia University. They belong to the lab."), and compact `.contrib-card`s with a "Designer · Postdoc" pill, a one-line description, and text links. The grid is 2 columns, 1 column at ≤1024px.
+- Removed the large NEXA/RHLab cards and the unused `.tool-btn--ghost` style.
+- Verified: desktop render at 1440px; no overflow at 320 and 390px.
