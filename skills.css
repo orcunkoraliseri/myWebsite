@@ -42,10 +42,36 @@ body {
   margin-bottom: 12px;
 }
 
-/* Skills Grid — single row, 6 columns */
-.skills-grid {
+/* Page wrapper — Skills section + Tools & Websites section */
+.skills-page {
   max-width: 1200px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-bottom: 40px;
+}
+
+/* Section sub-headers (same pattern as publications) */
+.group-subheader {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  padding-bottom: 6px;
+  border-bottom: 2px solid rgba(253, 214, 4, 0.55);
+}
+
+.group-subheader .group-count {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+/* Skills Grid — single row, 6 columns */
+.skills-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 18px;
@@ -133,6 +159,154 @@ body {
   color: var(--text-dark);
 }
 
+/* Linked chips (websites) */
+.skill-chip--link {
+  display: block;
+  text-decoration: none;
+  color: var(--text-dark);
+  border-color: var(--theme-color-dark);
+}
+
+.skill-chip--link:hover {
+  background-color: var(--theme-color) !important;
+  color: var(--text-dark);
+}
+
+/* ===========================
+   Tools & Websites
+   =========================== */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+
+.tool-card {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+  border-left: 4px solid transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+  transition: transform 0.3s ease, border-left-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--theme-color);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.07);
+}
+
+.tool-icon {
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: filter 0.3s ease;
+}
+
+.tool-card:hover .tool-icon {
+  filter: grayscale(0%) opacity(1) drop-shadow(0 3px 5px rgba(168, 140, 0, 0.45));
+}
+
+.tool-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  flex: 1;
+}
+
+.tool-tags {
+  list-style: none;
+  padding: 0;
+  margin: 2px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tool-tags li {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border: 1px solid rgba(168, 140, 0, 0.35);
+  background-color: rgba(253, 214, 4, 0.08);
+  border-radius: 50px;
+  padding: 2px 9px;
+}
+
+.tool-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.tool-name {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.tool-role {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  background-color: var(--theme-color);
+  border-radius: 50px;
+  padding: 3px 10px;
+}
+
+.tool-subtitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--theme-color-dark);
+}
+
+.tool-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.tool-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.tool-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--text-dark);
+  background-color: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  border-radius: 50px;
+  padding: 6px 14px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tool-btn:hover {
+  background-color: rgba(253, 214, 4, 0.75);
+}
+
+.tool-btn--ghost {
+  background-color: transparent;
+  border-color: rgba(168, 140, 0, 0.5);
+}
+
+.tool-btn--ghost:hover {
+  background-color: rgba(253, 214, 4, 0.18);
+}
+
 /* ===========================
    Scroll Animations
    =========================== */
@@ -154,6 +328,15 @@ body {
   .skills-grid {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-card {
+    flex-direction: row;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -163,6 +346,16 @@ body {
 
   .skills-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .tool-card {
+    flex-direction: column;
     gap: 14px;
   }
 }

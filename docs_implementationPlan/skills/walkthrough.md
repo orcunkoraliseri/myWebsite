@@ -29,7 +29,7 @@ The Skills page has been fully implemented based on the v1 implementation plan!
 | Energy Modeling | UBEM & BEM · EnergyPlus · Rhino/Grasshopper · TUBITAK 1001 Project · Energy & Buildings (Q1) |
 | Deep Learning | TensorFlow/PyTorch · Time-Series & Transformers · Graph Neural Networks · Occupancy Modeling · Computer Vision |
 | Cloud Computing | TRUBA (Turkish HPC) · Calcul Québec · HPC Workflows · Large-Scale Simulation · Building-Stock Modeling |
-| Academic Writing | Q1 Journal Articles · Peer Reviewer — Sci. Reports · 24+ Publications · Best Student Paper · Grant Proposals |
+| Academic Writing | Q1 Journal Articles · Peer Reviewer — Sci. Reports · 30 Publications · Best Student Paper · Grant Proposals |
 | Project Management | TUBITAK 1001 Lead · Research Funding · Team Mentoring (METU) · Intl. Collaboration · Newton Fund |
 | Web Design | LMN-Tool · Resilient Hab · Web Platform Development · Data Visualization · Interactive Tools |
 
@@ -41,3 +41,28 @@ The Skills page has been fully implemented based on the v1 implementation plan!
 - Hover a card: it lifts, the pictogram colors in, chips brighten.
 - Scroll to see the staggered left-to-right entrance.
 - Resize to confirm the grid collapses to 3 / 2 / 1 columns cleanly.
+
+---
+
+## Update 2026-11-02 — "Skills & Tools" + website links
+
+1. **Renamed** the page to **Skills & Tools**: the `<title>` and meta description, plus the landing tile label in `index.html` (`skills` → `skills & tools`).
+2. **Section structure:** `<main class="skills-page">` now wraps two sections, each with a `.group-subheader` styled like the publications page:
+   - **Skills · 6**: the same 6-card `.skills-grid`, unchanged.
+   - **Tools & Websites · 2**: a new `.tools-grid` (2 columns, 1 column ≤768px) containing `.tool-card`s.
+3. **Tool cards** (role pill: *Designer & Contributor*):
+   - **NEXA-web** (formerly LMN-Tool): Neighbourhood Energy Planning & Decision-Support Platform → `https://nexa-rhlab.com/`
+   - **Resilient Habitat Lab** website (Concordia) → `https://rhlab.encs.concordia.ca/` + `Tools page ↗` → `/tools.html`
+4. **Web Design chips:** `LMN-Tool` → linked **NEXA-web ↗** chip and `Resilient Hab` → linked **Resilient Habitat Lab ↗** chip (`.skill-chip--link`).
+5. The `skills.js` stagger still works, because each grid's children are cards only.
+
+### Verified
+- Rendered in headless Chrome at 1440px: 6-card row, then 2 tool cards side by side.
+- At 320 and 390px: `scrollWidth` equals the viewport, so there's no horizontal overflow, and the tool cards stack.
+- `rhlab.encs.concordia.ca` returns 200.
+
+### Known issue: nexa-rhlab.com unreachable (2026-11-02)
+- `carolinehvermette.github.io/NEXA-Web/` 301-redirects to `nexa-rhlab.com` (a GitHub Pages custom domain).
+- The domain (registered 2026-10-13 at Namecheap) resolves to `198.54.117.242`, which serves Namecheap's **"Registrant WHOIS contact information verification"** page. HTTPS is refused.
+- **Fix:** the domain owner must verify the registrant email in Namecheap. After that, DNS goes back to the GitHub Pages records; then re-tick "Enforce HTTPS" in the repo's Pages settings.
+- The links on this site need no change once that's done.
