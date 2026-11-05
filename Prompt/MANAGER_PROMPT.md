@@ -73,7 +73,7 @@ CLAUDE.md                                Auto-loaded by Claude Code; imports thi
 | magenta | `experience.html` | `rgba(180,4,149,1)` | white | — | **10** `.exp-card`; icons `teacher.png` / `reseacher.png` (sic) |
 | cyan | `education.html` | `rgba(20,199,222,1)` | dark | `rgba(13,145,162,1)` | **5** `.edu-card`, newest first; 🏅 scholarship badges; thesis titles in italics |
 | green | `publications.html` | `rgba(48,218,119,1)` | dark | `rgba(22,145,75,1)` | Citation-metrics card (Google Scholar table + bar chart), Awards ·2, Journals ·15, Book Chapters ·1, Conference Proceedings ·14. Owner's name is bolded in author lists. `DOI ↗` buttons; `⏳ Under Evaluation` badges sort to the top of their group. |
-| blue | `blog.html` | `rgba(53,152,219,1)` | white | — | **51** post cards, search box + year chips (2015–2026). Post pages use a 760px reading column. |
+| blue | `blog.html` | `rgba(53,152,219,1)` | white | — | **52** post cards, search box + year chips (2015–2026). Post pages use a 760px reading column. |
 | yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 5–6 keyword chips each ("30 Publications" must match the publications total). Linked chips: OpenUBEM on Energy Modeling; NEXA-web and RHLab on Web Design. **My Tools · 1**: a full-width featured `.tool-card` for OpenUBEM (the owner's own tool, *Creator & Developer*, GitHub link). **Postdoc Design Work · 2**: smaller `.contrib-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab website (`rhlab.encs.concordia.ca`). These belong to RHLab; the owner was the designer during the postdoc. Never present them as the owner's own tools. |
 
 Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages share a 1200px max-width container and a sticky `← home` topbar (no shadow).
@@ -100,14 +100,15 @@ Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages
 
 - `tools/localize-blog-images.js` downloads Blogger images into `content/blog/posts/img/` and writes `img-map.json`. This is a one-time step; images are already local (205 files, 0 remote references).
 - `tools/build-blog.js` parses `content/blog/Blogs/Personal Blog/feed.atom` (46 POST entries). It rewrites **`blog.html`** and the 46 generated post pages, normalizing Blogger HTML and adding `mobile.css`/`?v=` links.
-- 🚨 **Gotcha: 5 posts were added by hand and are NOT in the feed:**
+- 🚨 **Gotcha: 6 posts were added by hand and are NOT in the feed:**
   - `journal-at-2026-technological-synergies-community-energy-systems-cold-climates.html`
   - `journal-at-2026-occupancy-modeling-population-statistics-machine-learning.html`
+  - `openubem-open-source-urban-building-energy-modeling.html`
   - `architecture-portfolio-2012-2018.html`
   - `tasarim-koyu-izmir-2015-umob-15.html`
   - `tasarim-koyu-izmir-2016.html`
 
-  Running `node tools/build-blog.js` as-is **drops these 5 cards from `blog.html`** and resets the count to 46. Their post files survive, but nothing links to them. Before you ever regenerate, add a mechanism for extra posts first (for example a `content/blog/extra-posts.json` that the builder merges in). Otherwise, edit `blog.html` by hand.
+  Running `node tools/build-blog.js` as-is **drops these 6 cards from `blog.html`** and resets the count to 46. Their post files survive, but nothing links to them. Before you ever regenerate, add a mechanism for extra posts first (for example a `content/blog/extra-posts.json` that the builder merges in). Otherwise, edit `blog.html` by hand.
 - **Adding a new post by hand** (current practice):
   1. Copy an existing hand-made post, such as a `journal-at-2026-*.html` file, into `content/blog/posts/`. Keep its relative links (`../../../blog.html`, `../../../mobile.css`).
   2. Put images in `content/blog/posts/img/`.
@@ -160,7 +161,7 @@ Note: the publications page has grown beyond what its walkthrough describes. The
   3. Check the Research Focus and Skills chips for anything that should mention the paper.
 - **Citation metrics refresh** (Google Scholar, user `s4l2zioAAAAJ`):
   - Update the table and the bars in `publications.html`.
-  - Bar heights are set by hand as `--bar-h`. Current scale: max bar 180px = 64 citations, about **2.8px per citation**. Rescale every bar if a new year exceeds the max.
+  - Bar heights are set by hand as `--bar-h`. Current scale: max bar 180px = 68 citations (2026), about **2.65px per citation**. Scholar's chart shows only the last 7 years (2020–2026), so the card mirrors that. Rescale every bar if a new year exceeds the max.
   - Update each bar's `title` text and add a `.chart-year` label for any new year.
 - **New experience, education, or award:** add a card in the matching HTML following the existing markup and keep the order newest first. Group counts on publications are hard-coded (`· N`), so update them.
 - **New own tool or repo:** add a `.tool-card` under **My Tools** in `skills.html` and update the `· N` count. Take the description from the repo README, not from guesses. **New lab/postdoc platform:** add a `.contrib-card` under **Postdoc Design Work**.
@@ -195,3 +196,5 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-02 — Connected the local folder to `github.com/orcunkoraliseri/myWebsite` (moved `.git` in from a fresh clone; working tree clean at `596c0ea`). Deploy is now a plain `git push`.
 - 2026-11-02 — Skills page split into **My Tools** (OpenUBEM, featured) and a compact **Postdoc Design Work** section (NEXA-web, RHLab site; lab-owned, designer role only). Files: `skills.html`, `skills.css`.
 - 2026-11-02 — **Deployed** the My Tools / Postdoc Design Work split (commit `76f4654`). Manager prompt refreshed: owner and key links, attribution rule, headless-Chrome QA recipe, layout quirk, maintenance step for new tools.
+- 2026-11-05 — Citation metrics refreshed from Google Scholar: 235 citations (228 since 2021), h-index 7, i10-index 7. Chart now 2020–2026, rescaled to 68 = 180px; 2019 dropped to match Scholar. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
+- 2026-11-05 — New blog post **OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling** (text drawn from the OpenUBEM README), blog count 51 → 52, 2026 chip 2 → 3. Noted: `skills.html` OpenUBEM card cites "30 DOE archetypes / 8,160 buildings", which the current README no longer mentions (left as-is at owner's request). Files: `blog.html`, `content/blog/posts/openubem-open-source-urban-building-energy-modeling.html`, `content/blog/posts/img/openubem-graphical-abstract.jpg`, `README.md`, `docs_implementationPlan/blog/openubem_post/`.
