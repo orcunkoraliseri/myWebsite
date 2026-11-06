@@ -3,7 +3,7 @@
 > **How to use:** At the start of a new session, paste:
 > `Read Prompt/MANAGER_PROMPT.md and act as the project manager for this site. Then: <your task>`
 >
-> Last full scan: **2026-11-02** · Last updated: **2026-11-05** (after the citation refresh, OpenUBEM blog post, and Scholar-linked chip). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
+> Last full scan: **2026-11-02** · Last updated: **2026-11-06** (after the JBPS paper was published). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
 
 ---
 
@@ -199,3 +199,4 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-05 — Citation metrics refreshed from Google Scholar: 235 citations (228 since 2021), h-index 7, i10-index 7. Chart now 2020–2026, rescaled to 68 = 180px; 2019 dropped to match Scholar. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
 - 2026-11-05 — New blog post **OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling** (text drawn from the OpenUBEM README), blog count 51 → 52, 2026 chip 2 → 3. Noted: `skills.html` OpenUBEM card cites "30 DOE archetypes / 8,160 buildings", which the current README no longer mentions (left as-is at owner's request). Files: `blog.html`, `content/blog/posts/openubem-open-source-urban-building-energy-modeling.html`, `content/blog/posts/img/openubem-graphical-abstract.jpg`, `README.md`, `docs_implementationPlan/blog/openubem_post/`.
 - 2026-11-05 — Skills "30 Publications" chip now links to the Google Scholar profile (`skills.html`). **Deployed**: `5054f30` (citation metrics + OpenUBEM post) and `a0b0680` (this chip), both verified live. Last full scan date unchanged; "Last updated" now 2026-11-05.
+- 2026-11-06 — Publications: the JBPS paper (Iseri & Hachem-Vermette) is now **published** (online 2026-11-05, DOI 10.1080/19401493.2026.2747903); the "Longitudinal Analysis…" Under-Evaluation card became the published card "Canadian residential occupancy schedules from four time-use cycles (2005–2022)…", placed first among published journals. "Morphological Drivers…" card now shows its venue (Energy and Buildings; revision R1 submitted, still Under Evaluation). Totals unchanged (Journals 15, 30 overall). Not yet committed. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
