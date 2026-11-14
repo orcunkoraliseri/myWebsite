@@ -3,7 +3,7 @@
 > **How to use:** At the start of a new session, paste:
 > `Read Prompt/MANAGER_PROMPT.md and act as the project manager for this site. Then: <your task>`
 >
-> Last full scan: **2026-11-02** · Last updated: **2026-11-06** (after the JBPS paper was published). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
+> Last full scan: **2026-11-02** · Last updated: **2026-11-14** (after syncing publications and Google Scholar metrics). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
 
 ---
 
@@ -72,9 +72,9 @@ CLAUDE.md                                Auto-loaded by Claude Code; imports thi
 | orange | `about.html` | `rgba(240,95,51,1)` | white | — | 14-photo mosaic (7×2), identity card (CV download, 6 social links), Research Focus and Background side by side. **Desktop must fit one viewport with no scroll.** |
 | magenta | `experience.html` | `rgba(180,4,149,1)` | white | — | **10** `.exp-card`; icons `teacher.png` / `reseacher.png` (sic) |
 | cyan | `education.html` | `rgba(20,199,222,1)` | dark | `rgba(13,145,162,1)` | **5** `.edu-card`, newest first; 🏅 scholarship badges; thesis titles in italics |
-| green | `publications.html` | `rgba(48,218,119,1)` | dark | `rgba(22,145,75,1)` | Citation-metrics card (Google Scholar table + bar chart), Awards ·2, Journals ·15, Book Chapters ·1, Conference Proceedings ·14. Owner's name is bolded in author lists. `DOI ↗` buttons; `⏳ Under Evaluation` badges sort to the top of their group. |
+| green | `publications.html` | `rgba(48,218,119,1)` | dark | `rgba(22,145,75,1)` | Citation-metrics card (Google Scholar table + bar chart: 237 citations), Awards ·2, Journals ·20, Book Chapters ·1, Conference Proceedings ·16. Owner's name is bolded in author lists. `DOI ↗` buttons; `⏳ Under Evaluation` and `🛠️ In Preparation` badges sort above published entries in their group. |
 | blue | `blog.html` | `rgba(53,152,219,1)` | white | — | **52** post cards, search box + year chips (2015–2026). Post pages use a 760px reading column. |
-| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 5–6 keyword chips each ("30 Publications" must match the publications total). Linked chips: OpenUBEM on Energy Modeling; "30 Publications" on Academic Writing (→ Google Scholar profile); NEXA-web and RHLab on Web Design. **My Tools · 1**: a full-width featured `.tool-card` for OpenUBEM (the owner's own tool, *Creator & Developer*, GitHub link). **Postdoc Design Work · 2**: smaller `.contrib-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab website (`rhlab.encs.concordia.ca`). These belong to RHLab; the owner was the designer during the postdoc. Never present them as the owner's own tools. |
+| yellow | `skills.html` (**Skills & Tools**) | `rgba(253,214,4,1)` | dark | amber `rgba(168,140,0,1)` | **Skills · 6**: cards in 1 row (6→3→2→1 columns at 1024/768/480px), 5–6 keyword chips each ("37 Publications" must match the publications total). Linked chips: OpenUBEM on Energy Modeling; "37 Publications" on Academic Writing (→ Google Scholar profile); NEXA-web and RHLab on Web Design. **My Tools · 1**: a full-width featured `.tool-card` for OpenUBEM (the owner's own tool, *Creator & Developer*, GitHub link). **Postdoc Design Work · 2**: smaller `.contrib-card`s for NEXA-web (formerly LMN-Tool, `nexa-rhlab.com`) and the Resilient Habitat Lab website (`rhlab.encs.concordia.ca`). These belong to RHLab; the owner was the designer during the postdoc. Never present them as the owner's own tools. |
 
 Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages share a 1200px max-width container and a sticky `← home` topbar (no shadow).
 
@@ -90,7 +90,7 @@ Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages
 - **Desktop-frozen rule (mobile work):** every `mobile.css` rule lives inside `@media (max-width: 768px)`, and `mobile.js` returns immediately above 768px. Never change desktop rendering while doing mobile work. On phones, `mobile.js` adds the "show the headline, collapse the depth" toggles: About "Read more", Experience/Education "Show details (N)", and Publications "Show all N" (first 3 entries shown per group).
 - **Linking order on inner pages:** `styles.css` → `<section>.css` → `mobile.css`, then `<section>.js` → `mobile.js`.
 - **Cache-busting:** only the blog pages use `?v=<md5-8>` (added by `build-blog.js`). Other pages link CSS/JS without it. If users report stale styles after a deploy, add version query strings there too.
-- **Content source of truth = the HTML.** The CSVs in `content/` were the original inputs and are now **stale**. The publications CSV has 24 rows, but the page has 30 entries; the experience CSV has 5 rows, but the page has 10 cards. Edit the HTML directly. Only update a CSV if the user wants it kept in sync.
+- **Content source of truth = the HTML.** The CSVs in `content/` were the original inputs and are now **stale**. The publications CSV has 24 rows, but the page has 37 entries; the experience CSV has 5 rows, but the page has 10 cards. Edit the HTML directly. Only update a CSV if the user wants it kept in sync.
 - **Attribution:** never present lab-owned or co-authored work as the owner's own (see §1). When unsure who owns something, ask.
 - **Ask before inventing content.** Use the CV (`content/about me/CV/CV_OrcunKoralISERI_AC.pdf`), the CSVs, or the user's own words. Don't write bio, publication, or skill claims yourself.
 
@@ -149,7 +149,7 @@ python3 -m http.server 3011 &      # temporary server (kill it afterwards)
 
 `docs_implementationPlan/` has a plan and a walkthrough for each of: `firstPage`, `about me`, `experience`, `education`, `publications`, `skills`, `blog`, `mobile`. Read the walkthrough first because it's short. Read the plan only for design rationale.
 
-Note: the publications page has grown beyond what its walkthrough describes. The walkthrough says 9 journals and has no citation card; the page now has 15 journals plus the citation card. The **skills** walkthrough is current: it has three dated updates from 2026-11-02 covering Skills & Tools, OpenUBEM, and the own-vs-postdoc split.
+Note: the **publications** walkthrough (`docs_implementationPlan/publications/walkthrough.md`) and **skills** walkthrough (`docs_implementationPlan/skills/walkthrough.md`) are current (publications updated 2026-11-14: citation card + 20 journals, 1 book chapter, 16 conference proceedings = 37 total).
 
 ---
 
@@ -177,10 +177,10 @@ Note: the publications page has grown beyond what its walkthrough describes. The
 - [ ] **Cache-busting** on non-blog pages (§4).
 - [x] ~~**Deploy and versioning:** no git in this folder.~~ Connected to `origin` (`orcunkoraliseri/myWebsite`) on 2026-11-02.
 - [ ] **Cleanup candidates (ask first):** `content/input_temporary/` holds the PDFs of the two 2026 papers, which are already on the site. `.cadence/configs/` is empty.
-- [ ] **Docs drift:** Windows paths in the old docs; the publications walkthrough is outdated.
+- [ ] **Docs drift:** Windows paths in the old docs (`docs_implementationPlan/publications/walkthrough.md` updated 2026-11-14).
 - [x] ~~`README.md` is a two-line placeholder.~~ Rewritten 2026-11-02.
 - [ ] **nexa-rhlab.com is down** (as of 2026-11-02): the Namecheap registrant WHOIS verification is pending, so the domain shows Namecheap's verification page and HTTPS fails. The owner must verify the email at Namecheap, then re-enable "Enforce HTTPS" in GitHub Pages. Re-check with `curl -I https://nexa-rhlab.com/`. Our links are already correct.
-- [x] ~~Skills chip "24+ Publications" is stale.~~ Changed to "30 Publications" on 2026-11-02. Keep it in sync with the publications page total (Journals + Book Chapters + Conference Proceedings).
+- [x] ~~Skills chip "24+ Publications" is stale.~~ Synced to "37 Publications" on 2026-11-14. Keep it in sync with the publications page total (Journals + Book Chapters + Conference Proceedings).
 
 ---
 
@@ -199,4 +199,5 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-05 — Citation metrics refreshed from Google Scholar: 235 citations (228 since 2021), h-index 7, i10-index 7. Chart now 2020–2026, rescaled to 68 = 180px; 2019 dropped to match Scholar. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
 - 2026-11-05 — New blog post **OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling** (text drawn from the OpenUBEM README), blog count 51 → 52, 2026 chip 2 → 3. Noted: `skills.html` OpenUBEM card cites "30 DOE archetypes / 8,160 buildings", which the current README no longer mentions (left as-is at owner's request). Files: `blog.html`, `content/blog/posts/openubem-open-source-urban-building-energy-modeling.html`, `content/blog/posts/img/openubem-graphical-abstract.jpg`, `README.md`, `docs_implementationPlan/blog/openubem_post/`.
 - 2026-11-05 — Skills "30 Publications" chip now links to the Google Scholar profile (`skills.html`). **Deployed**: `5054f30` (citation metrics + OpenUBEM post) and `a0b0680` (this chip), both verified live. Last full scan date unchanged; "Last updated" now 2026-11-05.
-- 2026-11-06 — Publications: the JBPS paper (Iseri & Hachem-Vermette) is now **published** (online 2026-11-05, DOI 10.1080/19401493.2026.2747903); the "Longitudinal Analysis…" Under-Evaluation card became the published card "Canadian residential occupancy schedules from four time-use cycles (2005–2022)…", placed first among published journals. "Morphological Drivers…" card now shows its venue (Energy and Buildings; revision R1 submitted, still Under Evaluation). Totals unchanged (Journals 15, 30 overall). Not yet committed. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
+- **2026-11-06 — Publications:** the JBPS paper (Iseri & Hachem-Vermette) is now **published** (online 2026-11-05, DOI 10.1080/19401493.2026.2747903); the "Longitudinal Analysis…" Under-Evaluation card became the published card "Canadian residential occupancy schedules from four time-use cycles (2005–2022)…", placed first among published journals. "Morphological Drivers…" card now shows its venue (Energy and Buildings; revision R1 submitted, still Under Evaluation). Totals unchanged (Journals 15, 30 overall). Not yet committed. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
+- **2026-11-14 — Publications & Scholar Sync:** Google Scholar metrics refreshed (237 citations all / 230 since 2021; h-index 7; i10-index 7; 2024: 26, 2025: 66, 2026: 68). Synced `GSSCanada`, `OpenUBEM`, and Scholar works: updated `2J` (*Energy and Buildings*) and `3J` (*Energy Efficiency*); added `5J` (*Building and Environment*), `6J` (*Building Simulation*), `7J` (`🛠️ In Preparation`), `OpenUBEM` (`🛠️ In Preparation`), `SCS 2025` (`10.1016/j.scs.2025.106500`), CISBAT 2027 (`8J`, `⏳ Under Evaluation`), and `eSim 2026` (`10.26868/31114504.2026.30`); kept `4J` as `🛠️ In Preparation`. Counts updated: Journals ·20, Book Chapters ·1, Conference Proceedings ·16 (37 total), synced `skills.html` chip to "37 Publications ↗". Files: `publications.html`, `publications.css`, `skills.html`, `Prompt/MANAGER_PROMPT.md`, `docs_implementationPlan/publications/{implementation_plan.md,walkthrough.md}`.
