@@ -1,0 +1,56 @@
+[
+  {
+    "slug": "openubem-open-source-urban-building-energy-modeling",
+    "title": "OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling",
+    "published": "2026-11-05T12:00:00Z",
+    "labels": ["openubem", "UBEM", "EnergyPlus", "open source", "python"],
+    "thumb": "openubem-graphical-abstract.jpg",
+    "search": "openubem: an open-source toolkit for urban building energy modeling ubem energyplus open source python openstreetmap 3d viewer carbon emissions",
+    "handwritten": true
+  },
+  {
+    "slug": "journal-at-2026-technological-synergies-community-energy-systems-cold-climates",
+    "title": "Journal at 2026: Technological Synergies in Community Energy Systems in Cold Climates",
+    "published": "2026-02-27T12:00:00Z",
+    "labels": ["community energy", "district energy", "thermal storage", "cold climate", "net-zero", "review"],
+    "thumb": "graphical-abstract-ces-cold-climates.jpg",
+    "search": "journal at 2026: technological synergies in community energy systems in cold climates community energy district energy thermal storage demand response net-zero cold climate power-to-heat battery storage",
+    "handwritten": true
+  },
+  {
+    "slug": "journal-at-2026-occupancy-modeling-population-statistics-machine-learning",
+    "title": "Journal at 2026: Occupancy Modeling Using Population Statistics and Machine Learning for Urban Residential Built Environment",
+    "published": "2026-02-13T12:00:00Z",
+    "labels": ["occupancy modeling", "deep learning", "LSTM", "population statistics", "UBEM", "CENTUS"],
+    "thumb": "graphical-abstract-centus-occupancy.jpg",
+    "search": "journal at 2026: occupancy modeling using population statistics and machine learning for urban residential built environment centus lstm transformer deep learning building performance ubem",
+    "handwritten": true
+  },
+  {
+    "slug": "architecture-portfolio-2012-2018",
+    "title": "Architecture Portfolio, 2012–2018",
+    "published": "2018-06-15T12:00:00Z",
+    "labels": ["architecture", "portfolio", "bachelor", "computational design", "Yaşar University", "parametric design"],
+    "thumb": "orcun-koral-iseri-portfolio-envelope-design-2017.jpg",
+    "search": "architecture portfolio, 2012–2018 architecture portfolio bachelor computational design yaşar university parametric design wormhole pdemo bbom balcony izmir urban library villa alaçatı envelope design",
+    "handwritten": true
+  },
+  {
+    "slug": "tasarim-koyu-izmir-2016",
+    "title": "Tasarım Köyü İzmir 2016: Everywhere and Nowhere",
+    "published": "2016-08-27T12:00:00Z",
+    "labels": ["design village", "student organizing", "workshop", "community engagement", "İzmir", "architecture"],
+    "thumb": "tasarim-koyu-izmir-onsite-group.jpg",
+    "search": "tasarım köyü i̇zmir 2016: everywhere and nowhere design village student organizing workshop community engagement izmir architecture turgutköyü seferihisar",
+    "handwritten": true
+  },
+  {
+    "slug": "tasarim-koyu-izmir-2015-umob-15",
+    "title": "Tasarım Köyü İzmir 2015: ÜMOB'15 and the First Design Village",
+    "published": "2015-07-27T12:00:00Z",
+    "labels": ["design village", "ÜMOB", "student organizing", "workshop", "İzmir", "architecture"],
+    "thumb": "tasarim-koyu-izmir-2015-banner.jpg",
+    "search": "tasarım köyü i̇zmir 2015: ümob'15 and the first design village design village ümob student organizing workshop izmir architecture düzce köyü seferihisar",
+    "handwritten": true
+  }
+]

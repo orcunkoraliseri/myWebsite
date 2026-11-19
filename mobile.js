@@ -20,7 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.type = 'button';
     btn.className = 'm-toggle';
     let open = false;
-    const render = () => (btn.textContent = open ? '▴ Show less' : `▾ ${moreLabel} (${hidden.length})`);
+    const render = () => {
+      btn.textContent = open ? '▴ Show less' : `▾ ${moreLabel} (${hidden.length})`;
+      btn.setAttribute('aria-expanded', String(open));
+    };
     render();
     btn.addEventListener('click', () => {
       open = !open;
@@ -53,7 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.type = 'button';
     btn.className = 'm-toggle';
     let open = false;
-    const render = () => (btn.textContent = open ? '▴ Show less' : `▾ Show all ${cards.length}`);
+    const render = () => {
+      btn.textContent = open ? '▴ Show less' : `▾ Show all ${cards.length}`;
+      btn.setAttribute('aria-expanded', String(open));
+    };
     render();
     btn.addEventListener('click', () => {
       open = !open;
@@ -62,4 +68,49 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     (cards[2] || header).insertAdjacentElement('afterend', btn);
   });
+
+  // Blog — show the first 12 posts on phones, tuck the rest behind "Load more" when unfiltered.
+  const blogSearch = document.getElementById('blog-search');
+  const yearChips = document.getElementById('year-chips');
+  const blogCards = Array.from(document.querySelectorAll('.blog-container .post-card'));
+  const INITIAL_BLOG_COUNT = 12;
+
+  if (blogSearch && yearChips && blogCards.length > INITIAL_BLOG_COUNT) {
+    let blogExpanded = false;
+    const blogBtn = document.createElement('button');
+    blogBtn.type = 'button';
+    blogBtn.className = 'm-toggle';
+
+    function syncBlogMobile() {
+      const q = blogSearch.value.trim();
+      const activeChip = yearChips.querySelector('.year-chip.is-active');
+      const activeYear = activeChip ? activeChip.dataset.year : 'all';
+      const isFiltered = q.length > 0 || activeYear !== 'all';
+
+      if (isFiltered) {
+        blogCards.forEach((el) => el.classList.remove('m-blog-collapsed'));
+        blogBtn.hidden = true;
+      } else {
+        blogBtn.hidden = false;
+        blogCards.forEach((el, idx) => {
+          const shouldHide = !blogExpanded && idx >= INITIAL_BLOG_COUNT;
+          el.classList.toggle('m-blog-collapsed', shouldHide);
+          if (!shouldHide) el.classList.add('show-section');
+        });
+        blogBtn.textContent = blogExpanded ? '▴ Show fewer' : `▾ Show all ${blogCards.length} posts`;
+        blogBtn.setAttribute('aria-expanded', String(blogExpanded));
+      }
+    }
+
+    blogBtn.addEventListener('click', () => {
+      blogExpanded = !blogExpanded;
+      syncBlogMobile();
+    });
+
+    blogSearch.addEventListener('input', syncBlogMobile);
+    yearChips.addEventListener('click', () => setTimeout(syncBlogMobile, 0));
+
+    blogCards[blogCards.length - 1].insertAdjacentElement('afterend', blogBtn);
+    syncBlogMobile();
+  }
 });

@@ -5,41 +5,57 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog - Orcun Koral Iseri</title>
   <meta name="description" content="Blog posts by Orcun Koral Iseri — research notes, tutorials, and updates.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="canonical" href="https://www.orcunkoraliseri.com/blog.html">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Orcun Koral Iseri">
+  <meta property="og:title" content="Blog - Orcun Koral Iseri">
+  <meta property="og:description" content="Blog posts by Orcun Koral Iseri — research notes, tutorials, and updates.">
+  <meta property="og:url" content="https://www.orcunkoraliseri.com/blog.html">
+  <meta property="og:image" content="https://www.orcunkoraliseri.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog - Orcun Koral Iseri">
+  <meta name="twitter:description" content="Blog posts by Orcun Koral Iseri — research notes, tutorials, and updates.">
+  <meta name="twitter:image" content="https://www.orcunkoraliseri.com/og-image.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="blog.css?v=0bed7b5e">
-  <link rel="stylesheet" href="mobile.css?v=914c7dcc">
+  <link rel="stylesheet" href="styles.css?v=048f44ad">
+  <link rel="stylesheet" href="blog.css?v=2e07f2ea">
+  <link rel="stylesheet" href="mobile.css?v=ecb48901">
 </head>
 <body>
   <!-- Sticky top bar with Home Link -->
   <header class="page-topbar">
     <a href="index.html" class="back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       home
     </a>
   </header>
 
   <main class="blog-container">
+    <h1 class="visually-hidden">Blog — Orcun Koral Iseri</h1>
     <div class="blog-filters">
       <input type="search" id="blog-search" class="blog-search" placeholder="Search posts…" aria-label="Search posts">
       <div class="year-chips" id="year-chips">
-        <button type="button" class="year-chip is-active" data-year="all">All <span class="year-count">52</span></button>
-        <button type="button" class="year-chip" data-year="2026">2026 <span class="year-count">3</span></button>
-        <button type="button" class="year-chip" data-year="2025">2025 <span class="year-count">1</span></button>
-        <button type="button" class="year-chip" data-year="2024">2024 <span class="year-count">2</span></button>
-        <button type="button" class="year-chip" data-year="2022">2022 <span class="year-count">2</span></button>
-        <button type="button" class="year-chip" data-year="2020">2020 <span class="year-count">12</span></button>
-        <button type="button" class="year-chip" data-year="2019">2019 <span class="year-count">2</span></button>
-        <button type="button" class="year-chip" data-year="2018">2018 <span class="year-count">6</span></button>
-        <button type="button" class="year-chip" data-year="2017">2017 <span class="year-count">22</span></button>
-        <button type="button" class="year-chip" data-year="2016">2016 <span class="year-count">1</span></button>
-        <button type="button" class="year-chip" data-year="2015">2015 <span class="year-count">1</span></button>
+        <button type="button" class="year-chip is-active" data-year="all" aria-pressed="true">All <span class="year-count">52</span></button>
+        <button type="button" class="year-chip" data-year="2026" aria-pressed="false">2026 <span class="year-count">3</span></button>
+        <button type="button" class="year-chip" data-year="2025" aria-pressed="false">2025 <span class="year-count">1</span></button>
+        <button type="button" class="year-chip" data-year="2024" aria-pressed="false">2024 <span class="year-count">2</span></button>
+        <button type="button" class="year-chip" data-year="2022" aria-pressed="false">2022 <span class="year-count">2</span></button>
+        <button type="button" class="year-chip" data-year="2020" aria-pressed="false">2020 <span class="year-count">12</span></button>
+        <button type="button" class="year-chip" data-year="2019" aria-pressed="false">2019 <span class="year-count">2</span></button>
+        <button type="button" class="year-chip" data-year="2018" aria-pressed="false">2018 <span class="year-count">6</span></button>
+        <button type="button" class="year-chip" data-year="2017" aria-pressed="false">2017 <span class="year-count">22</span></button>
+        <button type="button" class="year-chip" data-year="2016" aria-pressed="false">2016 <span class="year-count">1</span></button>
+        <button type="button" class="year-chip" data-year="2015" aria-pressed="false">2015 <span class="year-count">1</span></button>
       </div>
     </div>
     <a class="post-card hidden-section" href="content/blog/posts/openubem-open-source-urban-building-energy-modeling.html" data-year="2026" data-search="openubem: an open-source toolkit for urban building energy modeling ubem energyplus open source python openstreetmap 3d viewer carbon emissions">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/openubem-graphical-abstract.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/openubem-graphical-abstract.jpg" alt="" class="post-thumb" fetchpriority="high" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling</h3>
         <div class="post-meta">Published · Nov 5, 2026</div>
@@ -47,7 +63,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/journal-at-2026-technological-synergies-community-energy-systems-cold-climates.html" data-year="2026" data-search="journal at 2026: technological synergies in community energy systems in cold climates community energy district energy thermal storage demand response net-zero cold climate power-to-heat battery storage">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/graphical-abstract-ces-cold-climates.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/graphical-abstract-ces-cold-climates.jpg" alt="" class="post-thumb" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Journal at 2026: Technological Synergies in Community Energy Systems in Cold Climates</h3>
         <div class="post-meta">Published · Feb 27, 2026</div>
@@ -55,7 +71,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/journal-at-2026-occupancy-modeling-population-statistics-machine-learning.html" data-year="2026" data-search="journal at 2026: occupancy modeling using population statistics and machine learning for urban residential built environment centus lstm transformer deep learning building performance ubem">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/graphical-abstract-centus-occupancy.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/graphical-abstract-centus-occupancy.jpg" alt="" class="post-thumb" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Journal at 2026: Occupancy Modeling Using Population Statistics and Machine Learning for Urban Residential Built Environment</h3>
         <div class="post-meta">Published · Feb 13, 2026</div>
@@ -63,47 +79,47 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/journal-at-2025-a-method-for-zone-level-urban-building-energy-modeling.html" data-year="2025" data-search="journal at 2025: a method for zone-level urban building energy modeling in data-scarce built environments ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Figure_202._20Proposed_20Workflow_20for_20UBEM_20D.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Figure_202._20Proposed_20Workflow_20for_20UBEM_20D.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Journal at 2025: A Method For Zone-level Urban Building Energy Modeling In Data-scarce Built Environments</h3>
         <div class="post-meta">Published · Mar 24, 2025</div>
-        <div class="post-labels"><span class="post-label">UBEM</span><span class="post-label">zone-level</span><span class="post-label">probabilistic</span><span class="post-label">data-scarce</span><span class="post-label">energy modeling</span><span class="post-label">Energy &amp; Buildings</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/how-to-use-truba-for-deep-learning-with-pytorch-2.html" data-year="2024" data-search="how to use truba for deep learning with pytorch - 2 ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Logo-EuroCC_200x200_light-_20ING.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Logo-EuroCC_200x200_light-_20ING.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">How to use TRUBA for deep learning with PyTorch - 2</h3>
         <div class="post-meta">Published · Aug 8, 2024</div>
-        <div class="post-labels"><span class="post-label">TRUBA</span><span class="post-label">deep learning</span><span class="post-label">PyTorch</span><span class="post-label">HPC</span><span class="post-label">tutorial</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/how-to-use-truba-for-deep-learning-with-pytorch-1.html" data-year="2024" data-search="how to use truba for deep learning with pytorch - 1 ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/61fb8e205cf4f_7-truba.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/61fb8e205cf4f_7-truba.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">How to use TRUBA for deep learning with PyTorch - 1</h3>
         <div class="post-meta">Published · Jul 27, 2024</div>
-        <div class="post-labels"><span class="post-label">TRUBA</span><span class="post-label">deep learning</span><span class="post-label">PyTorch</span><span class="post-label">HPC</span><span class="post-label">tutorial</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/urban-heat-island-measurement-in-ankara-2021.html" data-year="2022" data-search="urban heat island measurement in ankara, 2021 ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/UHIGraph.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/UHIGraph.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Urban Heat Island Measurement in Ankara, 2021</h3>
         <div class="post-meta">Published · May 15, 2022</div>
-        <div class="post-labels"><span class="post-label">urban heat island</span><span class="post-label">Ankara</span><span class="post-label">measurement</span><span class="post-label">climate</span><span class="post-label">urban environment</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/young-caadria-award-2022.html" data-year="2022" data-search="young caadria award - 2022 ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/0001.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/0001.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Young CAADRIA Award - 2022</h3>
         <div class="post-meta">Published · Apr 20, 2022</div>
-        <div class="post-labels"><span class="post-label">award</span><span class="post-label">CAADRIA 2022</span><span class="post-label">UBEM</span><span class="post-label">open datasets</span><span class="post-label">occupancy</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/an-exploratory-multi-objective-retrofit-decision-making-process.html" data-year="2020" data-search="an exploratory multi-objective retrofit decision-making process design performance-based design computational design energyplus architecture energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/logo-web-2-04-2.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/logo-web-2-04-2.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">An Exploratory Multi-objective Retrofit Decision-making Process</h3>
         <div class="post-meta">Published · Sep 7, 2020</div>
@@ -111,7 +127,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/the-comparative-study-on-the-influence-of-early-architectural-design-d.html" data-year="2020" data-search="the comparative study on the influence of early architectural design decisions on energy demand: a case study in turkey conference paper computational design performance-based design algorithmic energyplus architecture energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/logo-web-2-04.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/logo-web-2-04.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">The Comparative Study on the Influence of Early Architectural Design Decisions on Energy Demand: A Case Study in Turkey</h3>
         <div class="post-meta">Published · Sep 7, 2020</div>
@@ -119,7 +135,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/simaud2020-best-student-paper-award.html" data-year="2020" data-search="simaud2020 - best student paper award conference paper conference simaud2020">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/s.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/s.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Simaud2020 - Best Student Paper Award</h3>
         <div class="post-meta">Published · May 27, 2020</div>
@@ -127,63 +143,63 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/an-algorithm-for-efficient-urban-building-energy-modeling-and-simulati.html" data-year="2020" data-search="an algorithm for efficient urban building energy modeling and simulation conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">An Algorithm for Efficient Urban Building Energy Modeling and Simulation</h3>
         <div class="post-meta">Published · May 26, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">UBEM</span><span class="post-label">algorithm</span><span class="post-label">simulation</span><span class="post-label">urban</span><span class="post-label">energy modeling</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/climate-change-impact-on-multi-objective-optimization-a-case-study-on-.html" data-year="2020" data-search="climate change impact on multi-objective optimization: a case study on educational buildings conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Climate Change Impact on Multi-Objective Optimization: A Case Study on Educational Buildings</h3>
         <div class="post-meta">Published · May 26, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">climate change</span><span class="post-label">multi-objective</span><span class="post-label">optimization</span><span class="post-label">educational buildings</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/vision-based-lighting-state-detection-and-curtain-openness-ratio-predi.html" data-year="2020" data-search="vision-based lighting state detection and curtain openness ratio prediction conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o-2.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/95628221_2747936005427959_8674830062329004032_o-2.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Vision-Based Lighting State Detection and Curtain Openness Ratio Prediction</h3>
         <div class="post-meta">Published · May 26, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">computer vision</span><span class="post-label">lighting detection</span><span class="post-label">occupancy</span><span class="post-label">prediction</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/automated-building-energy-modeling-for-existing-buildings-using-comput.html" data-year="2020" data-search="automated building energy modeling for existing buildings using computer vision conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Untitled_drawing-2.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Untitled_drawing-2.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Automated building energy modeling for existing buildings using computer vision</h3>
         <div class="post-meta">Published · May 26, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">computer vision</span><span class="post-label">BEM</span><span class="post-label">automation</span><span class="post-label">existing buildings</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/video-content-analysis-based-detection-of-occupant-presence-for-buildi.html" data-year="2020" data-search="video content analysis-based detection of occupant presence for building energy modelling ">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Untitled_drawing.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Untitled_drawing.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Video Content Analysis-Based Detection of Occupant Presence for Building Energy Modelling</h3>
         <div class="post-meta">Published · May 25, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">computer vision</span><span class="post-label">occupancy detection</span><span class="post-label">video analysis</span><span class="post-label">building energy</span></div>
+        
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/hype-genetik-algoritmasi-kullanarak-net-butce-degeri-ve-aydinlanma-ora.html" data-year="2020" data-search="hype genetik algoritması kullanarak net bütçe değeri ve aydınlanma oranının dijital model üzerinden optimizasyonu conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/mstas-2.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/mstas-2.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">HypE Genetik Algoritması Kullanarak Net Bütçe Değeri ve Aydınlanma Oranının Dijital Model Üzerinden Optimizasyonu</h3>
         <div class="post-meta">Published · May 25, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">optimization</span><span class="post-label">genetic algorithm</span><span class="post-label">HypE</span><span class="post-label">daylighting</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/optimizing-wall-insulation-material-parameters-in-renovation-projects-.html" data-year="2020" data-search="optimizing wall insulation material parameters in renovation projects using nsga-ii conference paper">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/IEEE.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/IEEE.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Optimizing wall insulation material parameters in renovation projects using NSGA-II</h3>
         <div class="post-meta">Published · May 25, 2020</div>
-        <div class="post-labels"><span class="post-label">Conference Paper</span><span class="post-label">optimization</span><span class="post-label">NSGA-II</span><span class="post-label">insulation</span><span class="post-label">renovation</span></div>
+        <div class="post-labels"><span class="post-label">Conference Paper</span></div>
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/tutorial-investment.html" data-year="2020" data-search="tutorial: investment investment tutorial stock">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Investment-page-001.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Investment-page-001.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Tutorial: Investment</h3>
         <div class="post-meta">Published · Apr 12, 2020</div>
@@ -191,7 +207,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/tutorial-economics-society-by-paul-krugman.html" data-year="2020" data-search="tutorial: economics &amp; society by paul krugman economics society beginner economy tutorial">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/11.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/11.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Tutorial: Economics &amp; Society by Paul Krugman</h3>
         <div class="post-meta">Published · Apr 11, 2020</div>
@@ -199,7 +215,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/lecture-content-computational-design-architecture-2nd-year-undergradua.html" data-year="2019" data-search="lecture content - computational design - architecture 2nd year undergraduate izmir parametric gn performative-design grasshopper yaşar university performance-based design computation arch2211 3d yaşar des computational design lecture algorithmic">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/ARCH2211_Computational_Design_Content-01.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/ARCH2211_Computational_Design_Content-01.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Lecture Content - Computational Design - Architecture 2nd year Undergraduate</h3>
         <div class="post-meta">Published · Jan 23, 2019</div>
@@ -207,7 +223,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/machine-learning-in-a-nutshell.html" data-year="2019" data-search="machine learning in a nutshell ai flowchart analysis machine learning neural network algorithm computational network">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Machine_Leaning-01.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Machine_Leaning-01.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Machine Learning in a nutshell</h3>
         <div class="post-meta">Published · Jan 23, 2019</div>
@@ -215,7 +231,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/thermal-comfort-in-residential-buildings.html" data-year="2018" data-search="thermal comfort in residential buildings iso 7730 ppd index metabolic rate heat gain thermal comfort residential pmv clothing heat loss human user sweating ashrae energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/blog_2016_05_10-INFO-1.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/blog_2016_05_10-INFO-1.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Thermal Comfort in Residential Buildings</h3>
         <div class="post-meta">Published · Nov 16, 2018</div>
@@ -223,7 +239,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/coding-python.html" data-year="2018" data-search="coding: python tech coding plug-in python design programming script computational architecture">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/python-7be70baaac.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/python-7be70baaac.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">CODING: PYTHON</h3>
         <div class="post-meta">Published · Nov 16, 2018</div>
@@ -231,7 +247,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/coding-c.html" data-year="2018" data-search="coding: c# c# coding c design architecture computational">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/0_JLPdbimCEnWB8qJL.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/0_JLPdbimCEnWB8qJL.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">CODING: C#</h3>
         <div class="post-meta">Published · Nov 16, 2018</div>
@@ -239,7 +255,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/descriptive-systematic-methodology-in-design-process.html" data-year="2018" data-search="descriptive &amp; systematic methodology in design process design vs. science prescriptive chunk metu systematic intuitive 2018 cognitive heuristics normative science design doctorate descriptive autumn rational">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Descriptive__2526_Systematic_Approaches_in_Design-.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Descriptive__2526_Systematic_Approaches_in_Design-.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Descriptive &amp; Systematic Methodology in Design Process</h3>
         <div class="post-meta">Published · Nov 13, 2018</div>
@@ -247,7 +263,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/09-09-2018-introduction-to-digital-design-for-architecture.html" data-year="2018" data-search="09.09.2018 - introduction to digital design for architecture digital algorithms bim cad ai computerization modelling computation nurbs envelope design cube course vr mesh algorithm architecture">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/Introduction_to_Digital_Design_Presentation-02.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/Introduction_to_Digital_Design_Presentation-02.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">09.09.2018 - Introduction to Digital Design for Architecture</h3>
         <div class="post-meta">Published · Sep 8, 2018</div>
@@ -255,7 +271,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/architecture-portfolio-2012-2018.html" data-year="2018" data-search="architecture portfolio, 2012–2018 architecture portfolio bachelor computational design yaşar university parametric design wormhole pdemo bbom balcony izmir urban library villa alaçatı envelope design">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/orcun-koral-iseri-portfolio-envelope-design-2017.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/orcun-koral-iseri-portfolio-envelope-design-2017.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Architecture Portfolio, 2012–2018</h3>
         <div class="post-meta">Published · Jun 15, 2018</div>
@@ -263,7 +279,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/18-09-2017-horizion-2020-secure-clean-and-efficient-energy-notes.html" data-year="2017" data-search="18.09.2017 - horizion 2020 - secure, clean and efficient energy notes efficiency cooling horizon 2020 heating consumer energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/H2020_2.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/H2020_2.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">18.09.2017 - Horizion 2020 - Secure, Clean and Efficient Energy Notes</h3>
         <div class="post-meta">Published · Sep 18, 2017</div>
@@ -271,7 +287,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/07-09-2017-how-to-create-or-modify-energyplus-weather-data-epw.html" data-year="2017" data-search="07.09.2017 - how to create or modify energyplus weather data (epw) csv weather open-source epw energyplus energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/energyplus.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/energyplus.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">07.09.2017 - How to create or modify EnergyPlus Weather Data (EPW)</h3>
         <div class="post-meta">Published · Sep 7, 2017</div>
@@ -279,7 +295,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/06-09-2017-operative-temperature-mean-radian-temperature.html" data-year="2017" data-search="06.09.2017 - operative temperature / mean radian temperature mean temperature thermal thermalcomfort air velocity operative radiant">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/tmp632226278421823488.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/tmp632226278421823488.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">06.09.2017 - Operative Temperature / Mean Radian Temperature</h3>
         <div class="post-meta">Published · Sep 6, 2017</div>
@@ -287,7 +303,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/05-08-2017-how-to-write-thesis.html" data-year="2017" data-search="05.08.2017 - how to write thesis statement topic organize supervisor thesis">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/lolmythesis.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/lolmythesis.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">05.08.2017 - HOW TO WRITE THESIS</h3>
         <div class="post-meta">Published · Aug 5, 2017</div>
@@ -295,7 +311,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/16-07-2017-physical-topics-of-building.html" data-year="2017" data-search="16.07.2017 - physical topics of building sky internal daylightning leakege simulation mass flowrate infiltration gain wwr pysical thermall coefficient udi inulation enrgyplus properties">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/insulation_thermal_bridge_home_heat_loss.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/insulation_thermal_bridge_home_heat_loss.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">16.07.2017 - PHYSICAL TOPICS OF BUILDING</h3>
         <div class="post-meta">Published · Jul 16, 2017</div>
@@ -303,7 +319,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/11-07-2017-a-n-n-prediction-model.html" data-year="2017" data-search="11.07.2017 - a.n.n. / prediction model ann set data testing ai neural network tarining prediction validation algorithm architecture computational">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/l8qjP.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/l8qjP.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">11.07.2017 - A.N.N. / PREDICTION MODEL</h3>
         <div class="post-meta">Published · Jul 11, 2017</div>
@@ -311,7 +327,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/10-07-2017-modeling-energy-system.html" data-year="2017" data-search="10.07.2017 - modeling energy system heat hvac level co2 concentration losses gain system thermal temperature humidity energy relative">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/6a00e5536ab2398833019b0208234f970b.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/6a00e5536ab2398833019b0208234f970b.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">10.07.2017 - MODELING ENERGY SYSTEM</h3>
         <div class="post-meta">Published · Jul 9, 2017</div>
@@ -319,7 +335,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/09-07-2017-comfort-control-in-buildings.html" data-year="2017" data-search="09.07.2017 - comfort control in buildings pmvindex iaqindex thermal iaq pmv visual air comfort building quality">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/factor1.gif" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/factor1.gif" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">09.07.2017 - COMFORT CONTROL IN BUILDINGS</h3>
         <div class="post-meta">Published · Jul 9, 2017</div>
@@ -327,7 +343,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/02-07-2017-yds-turkce.html" data-year="2017" data-search="02.07.2017 - yds (türkçe) hedef youtube sentence 22 paragraph completion temmuz irrelevant e-yds puan yds ankara restatement kelime 90 dialogue">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/yds1.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/yds1.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">02.07.2017 - YDS (TÜRKÇE)</h3>
         <div class="post-meta">Published · Jul 2, 2017</div>
@@ -335,7 +351,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/01-07-2017-thermodynamics-design-builder-altensis.html" data-year="2017" data-search="01.07.2017 - thermodynamics - design builder - altensis heat youtube basics altensis thermodynamics convection transfer designbuilder crashcourseenergy radiation heatflow conduction temperature tutorial">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/photo.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/photo.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">01.07.2017 - THERMODYNAMICS - DESIGN BUILDER - ALTENSIS</h3>
         <div class="post-meta">Published · Jun 30, 2017</div>
@@ -343,7 +359,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/30-06-2017-tubitak-1512.html" data-year="2017" data-search="30.06.2017 - tubitak 1512 innovation şirket arge process süreç tubitak bigg başvuru teb ar-ge 1512 application prodis 1507 start-up kosgeb webinar">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/1512_252BGiri_25C5_259Fimcilik_252BA_25C5_259Famal.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/1512_252BGiri_25C5_259Fimcilik_252BA_25C5_259Famal.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">30.06.2017 - TUBITAK 1512</h3>
         <div class="post-meta">Published · Jun 30, 2017</div>
@@ -351,7 +367,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/26-06-2017-scientific-research.html" data-year="2017" data-search="26.06.2017 - scientific research ann youtube c# code classification analysis thinking comfort paper science writing energyplus rational">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/167630309.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/167630309.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">26.06.2017 - SCIENTIFIC RESEARCH</h3>
         <div class="post-meta">Published · Jun 26, 2017</div>
@@ -359,7 +375,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/22-06-2017-flow-chart-ann.html" data-year="2017" data-search="22.06.2017 - flow chart / ann ann analyses openstudio data simulation record prediction pattern recognition flowchart matrix">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/flowchart.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/flowchart.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">22.06.2017 - FLOW CHART / ANN</h3>
         <div class="post-meta">Published · Jun 21, 2017</div>
@@ -367,7 +383,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/21-06-2017-coding.html" data-year="2017" data-search="21.06.2017 - coding c# console coding language algorithm">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/19-faces-everyone-who-is-eternally-exhausted-will-.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/19-faces-everyone-who-is-eternally-exhausted-will-.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">21.06.2017 - CODING</h3>
         <div class="post-meta">Published · Jun 20, 2017</div>
@@ -375,7 +391,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/20-06-2017-train-to-nzeb-conference.html" data-year="2017" data-search="20.06.2017 - train to nzeb conference heat thermalbridge passivehouse ventivaliton phpp opening insulation excel optimization heatflow nzeb passivhausinstitut seminer">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/ext.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/ext.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">20.06.2017 - TRAIN TO NZEB CONFERENCE</h3>
         <div class="post-meta">Published · Jun 19, 2017</div>
@@ -383,7 +399,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/19-07-2017-day-7-neural-network.html" data-year="2017" data-search="19.07.2017 - day 7 - neural network ann c# matlab neuralnetwork mstas ai dod crow metu jeffheaton heatonresearch">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/neural_net.jpeg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/neural_net.jpeg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">19.07.2017 - DAY 7 - NEURAL NETWORK</h3>
         <div class="post-meta">Published · Jun 19, 2017</div>
@@ -391,7 +407,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/18-07-2017-day-6-energyplus.html" data-year="2017" data-search="18.07.2017 - day 6 - energyplus c# ann c++ c oil crisis software energyplus">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/tool_energyplus.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/tool_energyplus.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">18.07.2017 - DAY 6 - ENERGYPLUS</h3>
         <div class="post-meta">Published · Jun 18, 2017</div>
@@ -399,7 +415,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/17-07-2017-day-5-visual-studio.html" data-year="2017" data-search="17.07.2017 - day 5 - visual studio c# youtube algorithms coding tutorial programming visual studio">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/AttachFileHandler.png" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/AttachFileHandler.png" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">17.07.2017 - DAY 5 - VISUAL STUDIO</h3>
         <div class="post-meta">Published · Jun 16, 2017</div>
@@ -407,7 +423,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/15-06-2017-day-4-mstas-17.html" data-year="2017" data-search="15.06.2017 - day 4 - mstas.17 civilengineer conference committee june mstas bim acoustic metu buildinginformation">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/mstas.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/mstas.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">15.06.2017 - DAY 4 - MSTAS.17</h3>
         <div class="post-meta">Published · Jun 15, 2017</div>
@@ -415,7 +431,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/14-06-2017-day-3-conference.html" data-year="2017" data-search="14.06.2017 - day 3 - conference conference june ankara mstas cad metu cam">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/19619891_10155442446824476_289196677_o.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/19619891_10155442446824476_289196677_o.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">14.06.2017 - DAY 3 - CONFERENCE</h3>
         <div class="post-meta">Published · Jun 14, 2017</div>
@@ -423,7 +439,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/13-06-2017-day-2-optimization.html" data-year="2017" data-search="13.06.2017 - day 2 - optimization conference metu objective metaheuristic june optimization mstas hype parameter multiobjective udi architecture computational energy">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/DBZTyGkXsAEyD2S.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/DBZTyGkXsAEyD2S.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">13.06.2017 - DAY 2 - OPTIMIZATION</h3>
         <div class="post-meta">Published · Jun 13, 2017</div>
@@ -431,7 +447,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/11-june-2017-day-1-about-me.html" data-year="2017" data-search="11.june.2017 - day 1 - about me ann yaşar june hamdiulukaya university thesis metu first energy computational">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/or_25C3_25A7un_koral_i_25C5_259Feri.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/or_25C3_25A7un_koral_i_25C5_259Feri.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">11.June.2017 - DAY 1 - ABOUT ME</h3>
         <div class="post-meta">Published · Jun 11, 2017</div>
@@ -439,7 +455,7 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/tasarim-koyu-izmir-2016.html" data-year="2016" data-search="tasarım köyü i̇zmir 2016: everywhere and nowhere design village student organizing workshop community engagement izmir architecture turgutköyü seferihisar">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/tasarim-koyu-izmir-onsite-group.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/thumbs/tasarim-koyu-izmir-onsite-group.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Tasarım Köyü İzmir 2016: Everywhere and Nowhere</h3>
         <div class="post-meta">Published · Aug 27, 2016</div>
@@ -447,16 +463,17 @@
       </div>
     </a>
     <a class="post-card hidden-section" href="content/blog/posts/tasarim-koyu-izmir-2015-umob-15.html" data-year="2015" data-search="tasarım köyü i̇zmir 2015: ümob'15 and the first design village design village ümob student organizing workshop izmir architecture düzce köyü seferihisar">
-      <div class="post-thumb-col"><img src="content/blog/posts/img/tasarim-koyu-izmir-2015-banner.jpg" alt="" class="post-thumb" loading="lazy"></div>
+      <div class="post-thumb-col"><img src="content/blog/posts/img/tasarim-koyu-izmir-2015-banner.jpg" alt="" class="post-thumb" loading="lazy" decoding="async"></div>
       <div class="post-card-body">
         <h3 class="post-card-title">Tasarım Köyü İzmir 2015: ÜMOB'15 and the First Design Village</h3>
         <div class="post-meta">Published · Jul 27, 2015</div>
         <div class="post-labels"><span class="post-label">design village</span><span class="post-label">ÜMOB</span><span class="post-label">student organizing</span><span class="post-label">workshop</span><span class="post-label">İzmir</span><span class="post-label">architecture</span></div>
       </div>
     </a>
-    <p class="blog-noresults" id="blog-noresults" hidden>No posts match your search.</p>
+    <p class="blog-noresults" id="blog-noresults" role="status" aria-live="polite" hidden>No posts match your search.</p>
   </main>
 
-  <script src="blog.js?v=857c62ab"></script>
+  <script src="blog.js?v=773155d0"></script>
+  <script src="mobile.js?v=83728bd5"></script>
 </body>
 </html>

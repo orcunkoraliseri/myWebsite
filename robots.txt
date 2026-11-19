@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /Prompt/
+Disallow: /docs_implementationPlan/
+Disallow: /References/
+Disallow: /tools/
+
+Sitemap: https://www.orcunkoraliseri.com/sitemap.xml

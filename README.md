@@ -47,12 +47,12 @@ Prompt/MANAGER_PROMPT.md              Full maintainer / AI-assistant context
 Content is edited **directly in the HTML pages**. The CSV files in `content/` were the original inputs and are no longer kept in sync.
 
 - **New publication, award, or experience entry:** copy an existing card in the relevant page and keep the newest-first order. On the publications page, also update the group count (`· N`).
-- **New blog post:** add the post page to `content/blog/posts/`, then add a card and update the counts in `blog.html`. See `Prompt/MANAGER_PROMPT.md` §5 for the steps.
+- **New blog post:** add the post page to `content/blog/posts/`, add its metadata entry to `content/blog/extra-posts.json`, run `node tools/build-blog.js && node tools/bump-assets.js`, and add the URL to `sitemap.xml`. See `Prompt/MANAGER_PROMPT.md` §5 for the steps.
 - **CV:** replace `content/about me/CV/CV_OrcunKoralISERI_AC.pdf`.
 
 ### Blog generator
 
-`tools/build-blog.js` built the original 46 posts from the Blogger export, and `tools/localize-blog-images.js` downloaded their images locally. Five posts were added by hand afterwards, and the generator doesn't know about them yet. **Do not re-run the generator** until it has been extended to include them, or those posts will vanish from the blog list.
+`tools/build-blog.js` builds the 46 posts from the Blogger export, merges the 6 hand-written posts defined in `content/blog/extra-posts.json` (without overwriting their HTML), and writes `blog.html` using optimized thumbnails from `content/blog/posts/img/thumbs/` when available. Run `node tools/bump-assets.js` after editing CSS/JS files to update `?v=` cache-busters across all pages.
 
 ## Mobile QA (optional)
 

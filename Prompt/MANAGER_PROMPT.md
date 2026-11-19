@@ -3,7 +3,7 @@
 > **How to use:** At the start of a new session, paste:
 > `Read Prompt/MANAGER_PROMPT.md and act as the project manager for this site. Then: <your task>`
 >
-> Last full scan: **2026-11-02** · Last updated: **2026-11-14** (after syncing publications and Google Scholar metrics). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
+> Last full scan: **2026-11-19** · Last updated: **2026-11-19** (full site audit & prioritized fixes). If you change something structural, update the relevant section and add a line to the **Session Log** at the bottom.
 
 ---
 
@@ -89,7 +89,7 @@ Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages
 - **New section page:** fork the closest existing CSS (most were forked from `experience.css`). Swap the theme color. Use dark text on pills for the light tiles (cyan, green, yellow) and a darker accent variant for titles and hover states.
 - **Desktop-frozen rule (mobile work):** every `mobile.css` rule lives inside `@media (max-width: 768px)`, and `mobile.js` returns immediately above 768px. Never change desktop rendering while doing mobile work. On phones, `mobile.js` adds the "show the headline, collapse the depth" toggles: About "Read more", Experience/Education "Show details (N)", and Publications "Show all N" (first 3 entries shown per group).
 - **Linking order on inner pages:** `styles.css` → `<section>.css` → `mobile.css`, then `<section>.js` → `mobile.js`.
-- **Cache-busting:** only the blog pages use `?v=<md5-8>` (added by `build-blog.js`). Other pages link CSS/JS without it. If users report stale styles after a deploy, add version query strings there too.
+- **Cache-busting:** all root HTML pages, `blog.html`, and all 52 post pages link CSS/JS with `?v=<md5-8>` hashes. Run `node tools/bump-assets.js` after editing any root `.css` or `.js` file so every page fetches the fresh version automatically.
 - **Content source of truth = the HTML.** The CSVs in `content/` were the original inputs and are now **stale**. The publications CSV has 24 rows, but the page has 37 entries; the experience CSV has 5 rows, but the page has 10 cards. Edit the HTML directly. Only update a CSV if the user wants it kept in sync.
 - **Attribution:** never present lab-owned or co-authored work as the owner's own (see §1). When unsure who owns something, ask.
 - **Ask before inventing content.** Use the CV (`content/about me/CV/CV_OrcunKoralISERI_AC.pdf`), the CSVs, or the user's own words. Don't write bio, publication, or skill claims yourself.
@@ -98,22 +98,21 @@ Background color: `rgba(248,248,246,1)`. Tile and card radius: 24px. Inner pages
 
 ## 5. Blog pipeline (read before touching the blog)
 
-- `tools/localize-blog-images.js` downloads Blogger images into `content/blog/posts/img/` and writes `img-map.json`. This is a one-time step; images are already local (205 files, 0 remote references).
-- `tools/build-blog.js` parses `content/blog/Blogs/Personal Blog/feed.atom` (46 POST entries). It rewrites **`blog.html`** and the 46 generated post pages, normalizing Blogger HTML and adding `mobile.css`/`?v=` links.
-- 🚨 **Gotcha: 6 posts were added by hand and are NOT in the feed:**
+- `tools/localize-blog-images.js` downloads Blogger images into `content/blog/posts/img/` and writes `img-map.json`. This is a one-time step; images are already local (0 remote references).
+- `tools/build-blog.js` parses `content/blog/Blogs/Personal Blog/feed.atom` (46 POST entries) and merges the 6 hand-written entries listed in `content/blog/extra-posts.json` (`"handwritten": true`). It rewrites **`blog.html`** and the 46 generated post pages (adding `alt=""` to Blogger `<img>` tags missing `alt`, `mobile.css`/`mobile.js`, favicons, OG tags, and `?v=` hashes), while preserving the 6 hand-written post HTML files untouched and automatically preferring resized thumbnails in `content/blog/posts/img/thumbs/` on `blog.html`.
+- The 6 hand-written posts tracked in `content/blog/extra-posts.json`:
+  - `openubem-open-source-urban-building-energy-modeling.html`
   - `journal-at-2026-technological-synergies-community-energy-systems-cold-climates.html`
   - `journal-at-2026-occupancy-modeling-population-statistics-machine-learning.html`
-  - `openubem-open-source-urban-building-energy-modeling.html`
   - `architecture-portfolio-2012-2018.html`
-  - `tasarim-koyu-izmir-2015-umob-15.html`
   - `tasarim-koyu-izmir-2016.html`
+  - `tasarim-koyu-izmir-2015-umob-15.html`
 
-  Running `node tools/build-blog.js` as-is **drops these 6 cards from `blog.html`** and resets the count to 46. Their post files survive, but nothing links to them. Before you ever regenerate, add a mechanism for extra posts first (for example a `content/blog/extra-posts.json` that the builder merges in). Otherwise, edit `blog.html` by hand.
+  When adding a new hand-written post, add its metadata object to `content/blog/extra-posts.json` so `node tools/build-blog.js` keeps it in `blog.html` and updates counts automatically.
 - **Adding a new post by hand** (current practice):
   1. Copy an existing hand-made post, such as a `journal-at-2026-*.html` file, into `content/blog/posts/`. Keep its relative links (`../../../blog.html`, `../../../mobile.css`).
-  2. Put images in `content/blog/posts/img/`.
-  3. Insert a `.post-card` at the correct date position in `blog.html`, with `data-year` and a lowercase `data-search` string of title plus keywords.
-  4. Update the `All (N)` count and the matching year-chip count. Add a new year chip if needed.
+  2. Put images in `content/blog/posts/img/` (and an optional compressed 480px thumbnail in `content/blog/posts/img/thumbs/<stem>.jpg`).
+  3. Add its metadata entry (`slug`, `title`, `published`, `labels`, `thumb`, `search`, `"handwritten": true`) to `content/blog/extra-posts.json` and run `node tools/build-blog.js && node tools/bump-assets.js` (or update `blog.html` and counts directly), plus add the URL to `sitemap.xml`.
 - **Journal-post pattern:** a post titled "Journal at YYYY: <paper title>" with a graphical abstract image. Image-generation prompts for those abstracts live in `docs_implementationPlan/blog/posts_June8th/`.
 
 ---
@@ -171,15 +170,18 @@ Note: the **publications** walkthrough (`docs_implementationPlan/publications/wa
 
 ## 9. Open backlog / known issues
 
-- [ ] **Blog builder vs. hand-made posts** (§5): add extra-post support before any regeneration.
-- [ ] **Mobile Phase 3 polish** (not done): 44px tap targets, `env(safe-area-inset-*)`, `prefers-reduced-motion`, standardized breakpoints, blog "Load more".
-- [ ] **SEO/meta:** `index.html` still has `<title>Personal Portfolio</title>` and a generic description. Add a real title and description, Open Graph tags, and a favicon to all pages (a Blogger `favicon.ico` exists in the export).
-- [ ] **Cache-busting** on non-blog pages (§4).
+- [x] ~~**Blog builder vs. hand-made posts** (§5):~~ Implemented `content/blog/extra-posts.json` merge in `tools/build-blog.js` (2026-11-19).
+- [x] ~~**Mobile Phase 3 polish** (not done):~~ Completed 44px tap targets, `env(safe-area-inset-*)`, `prefers-reduced-motion`, and mobile blog "Load more" (first 12 cards on `<= 768px`, auto-disabled while filtering) on 2026-11-19.
+- [x] ~~**SEO/meta:**~~ Updated `index.html` title/description; added `favicon.svg`, `favicon.ico`, `apple-touch-icon.png`, `og-image.png`, canonical/OG/Twitter meta tags, `Person` JSON-LD, `robots.txt`, `sitemap.xml`, and `404.html` on 2026-11-19.
+- [x] ~~**Cache-busting** on non-blog pages (§4):~~ Added `tools/bump-assets.js` across all 60 HTML files (2026-11-19).
 - [x] ~~**Deploy and versioning:** no git in this folder.~~ Connected to `origin` (`orcunkoraliseri/myWebsite`) on 2026-11-02.
-- [ ] **Cleanup candidates (ask first):** `content/input_temporary/` holds the PDFs of the two 2026 papers, which are already on the site. `.cadence/configs/` is empty.
-- [ ] **Docs drift:** Windows paths in the old docs (`docs_implementationPlan/publications/walkthrough.md` updated 2026-11-14).
+- [x] ~~**Cleanup candidates (ask first):**~~ Removed `content/input_temporary/`, `content/blog/Profile/`, `content/blog/Albums/`, `.cadence/`, and duplicate PNGs in `docs_implementationPlan/blog/posts_June8th/` on 2026-11-19 (recoverable from git history if needed).
+- [ ] **Docs drift:** Windows paths in the old docs (`docs_implementationPlan/publications/walkthrough.md` updated 2026-11-14; `docs_implementationPlan/site-audit-2026-11/` added 2026-11-19).
+- [ ] **Owner confirmation items (left untouched on purpose):**
+  - `orcunkoral.oseri@concordia.ca` in `about.html` was verified against the published *Energies* 2026 PDF and kept as-is.
+  - Duplicate DOI `10.1007/978-981-19-1280-1_14` in `publications.html` (listed under both Book Chapters and Conference Proceedings, matching the CV PDF) was left as-is.
 - [x] ~~`README.md` is a two-line placeholder.~~ Rewritten 2026-11-02.
-- [ ] **nexa-rhlab.com is down** (as of 2026-11-02): the Namecheap registrant WHOIS verification is pending, so the domain shows Namecheap's verification page and HTTPS fails. The owner must verify the email at Namecheap, then re-enable "Enforce HTTPS" in GitHub Pages. Re-check with `curl -I https://nexa-rhlab.com/`. Our links are already correct.
+- [x] ~~**nexa-rhlab.com is down** (as of 2026-11-02):~~ Verified `https://nexa-rhlab.com/` returns `200 OK` (`<title>NEXA</title>`) on 2026-11-19.
 - [x] ~~Skills chip "24+ Publications" is stale.~~ Synced to "37 Publications" on 2026-11-14. Keep it in sync with the publications page total (Journals + Book Chapters + Conference Proceedings).
 
 ---
@@ -201,3 +203,4 @@ Add one line per working session: `YYYY-MM-DD — what changed — files touched
 - 2026-11-05 — Skills "30 Publications" chip now links to the Google Scholar profile (`skills.html`). **Deployed**: `5054f30` (citation metrics + OpenUBEM post) and `a0b0680` (this chip), both verified live. Last full scan date unchanged; "Last updated" now 2026-11-05.
 - **2026-11-06 — Publications:** the JBPS paper (Iseri & Hachem-Vermette) is now **published** (online 2026-11-05, DOI 10.1080/19401493.2026.2747903); the "Longitudinal Analysis…" Under-Evaluation card became the published card "Canadian residential occupancy schedules from four time-use cycles (2005–2022)…", placed first among published journals. "Morphological Drivers…" card now shows its venue (Energy and Buildings; revision R1 submitted, still Under Evaluation). Totals unchanged (Journals 15, 30 overall). Not yet committed. Files: `publications.html`, `Prompt/MANAGER_PROMPT.md`.
 - **2026-11-14 — Publications & Scholar Sync:** Google Scholar metrics refreshed (237 citations all / 230 since 2021; h-index 7; i10-index 7; 2024: 26, 2025: 66, 2026: 68). Synced `GSSCanada`, `OpenUBEM`, and Scholar works: updated `2J` (*Energy and Buildings*) and `3J` (*Energy Efficiency*); added `5J` (*Building and Environment*), `6J` (*Building Simulation*), `7J` (`🛠️ In Preparation`), `OpenUBEM` (`🛠️ In Preparation`), `SCS 2025` (`10.1016/j.scs.2025.106500`), CISBAT 2027 (`8J`, `⏳ Under Evaluation`), and `eSim 2026` (`10.26868/31114504.2026.30`); kept `4J` as `🛠️ In Preparation`. Counts updated: Journals ·20, Book Chapters ·1, Conference Proceedings ·16 (37 total), synced `skills.html` chip to "37 Publications ↗". Files: `publications.html`, `publications.css`, `skills.html`, `Prompt/MANAGER_PROMPT.md`, `docs_implementationPlan/publications/{implementation_plan.md,walkthrough.md}`.
+- **2026-11-19 — Full Site Audit & Prioritized Remediation (local, uncommitted):** Removed unused exposed files (`content/blog/Profile/`, `content/input_temporary/`, `content/blog/Albums/`, `.cadence/`, duplicate PNGs in `docs_implementationPlan/blog/posts_June8th/`); compressed `content/about me/photos/` (`22.42 MB` → `456.8 KB`), converted 2026 graphical abstract PNGs to JPEGs, and generated `content/blog/posts/img/thumbs/` (`blog.html` `9.17 MB` → `1.49 MB`); fixed landing 3D tilt (`!important` override + touch-laptop pointer detection), About mosaic hover zoom, Skills hover transition-delay lag, standalone `.blog-btn` margin, and `about.html` `rel="noopener"`; updated `index.html` SEO title/description, added favicons/OG/Twitter/JSON-LD, `robots.txt`, `sitemap.xml`, `404.html`, and `tools/bump-assets.js`; fixed WCAG AA contrast, heading/table semantics, decorative SVG `aria-hidden`, `prefers-reduced-motion`, ARIA toggle states, 44px mobile tap targets + safe-area insets, and mobile blog Load-More; standardized `Present`/`Peer Reviewer (3 Journals)` copy; added `content/blog/extra-posts.json` to `tools/build-blog.js` and normalized `alt=""` across generated posts. Files: root HTML/CSS/JS, `mobile.{css,js}`, `tools/{build-blog,bump-assets}.js`, `content/blog/{extra-posts.json,posts/**}`, `docs_implementationPlan/site-audit-2026-11/`, `CLAUDE.md`, `README.md`, `Prompt/MANAGER_PROMPT.md`.

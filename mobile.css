@@ -8,11 +8,19 @@
 
 @media (max-width: 768px) {
 
-  /* ---- Correctness: prevent horizontal overflow ----
+  /* ---- Correctness: prevent horizontal overflow + safe-area insets ----
      Content pages inherit display:flex (home-grid centering) from styles.css;
      reset to normal block flow so the topbar + main don't form an off-centre
      row that overflows on narrow phones. */
-  body { display: block; }
+  body {
+    display: block;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+    padding-bottom: max(24px, env(safe-area-inset-bottom));
+  }
+  .page-topbar {
+    padding-top: max(14px, env(safe-area-inset-top));
+  }
   html, body { overflow-x: clip; }   /* safety net; clip (not hidden) keeps the sticky topbar working */
 
   /* Long bare URLs and wide tables in blog posts must not stretch the page. */
@@ -37,11 +45,31 @@
     scroll-snap-align: start;
   }
 
-  /* ---- Progressive disclosure: "Show more / less" (toggles injected by mobile.js) ---- */
-  .m-collapsed { display: none !important; }
-  .m-toggle {
+  .social-links { gap: 8px; }
+
+  /* ---- Minimum 44px touch targets on phones ---- */
+  .back-link,
+  .m-toggle,
+  .year-chip,
+  .social-icon,
+  .doi-btn,
+  .blog-btn,
+  .thesis-btn,
+  .exp-link-btn,
+  .tool-btn,
+  .contrib-links a,
+  .post-allposts {
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
+  }
+  .social-icon { min-width: 44px; }
+
+  /* ---- Progressive disclosure: "Show more / less" (toggles injected by mobile.js) ---- */
+  .m-collapsed,
+  .m-blog-collapsed { display: none !important; }
+  .m-toggle {
     gap: 6px;
     margin-top: 12px;
     padding: 7px 16px;
@@ -56,4 +84,5 @@
     -webkit-tap-highlight-color: transparent;
   }
   .m-toggle:hover { background: rgba(0, 0, 0, 0.06); }
+  .m-toggle[hidden] { display: none; }
 }

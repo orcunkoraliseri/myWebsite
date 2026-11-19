@@ -212,15 +212,17 @@ body {
 /* ===========================
    Scroll Animations
    =========================== */
-.hidden-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .js .hidden-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
 
-.show-section {
-  opacity: 1;
-  transform: translateY(0);
+  .js .hidden-section.show-section {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================

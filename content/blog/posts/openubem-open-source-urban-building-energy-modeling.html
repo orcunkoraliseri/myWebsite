@@ -5,21 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling - Orcun Koral Iseri</title>
   <meta name="description" content="OpenUBEM is an open-source toolkit that estimates the annual energy use, hourly load profiles, and operational carbon emissions of every building in a neighbourhood.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="canonical" href="https://www.orcunkoraliseri.com/content/blog/posts/openubem-open-source-urban-building-energy-modeling.html">
+  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="../../../favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../../apple-touch-icon.png">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Orcun Koral Iseri">
+  <meta property="og:title" content="OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling - Orcun Koral Iseri">
+  <meta property="og:description" content="OpenUBEM is an open-source toolkit that estimates the annual energy use, hourly load profiles, and operational carbon emissions of every building in a neighbourhood.">
+  <meta property="og:url" content="https://www.orcunkoraliseri.com/content/blog/posts/openubem-open-source-urban-building-energy-modeling.html">
+  <meta property="og:image" content="https://www.orcunkoraliseri.com/content/blog/posts/img/openubem-graphical-abstract.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling - Orcun Koral Iseri">
+  <meta name="twitter:description" content="OpenUBEM is an open-source toolkit that estimates the annual energy use, hourly load profiles, and operational carbon emissions of every building in a neighbourhood.">
+  <meta name="twitter:image" content="https://www.orcunkoraliseri.com/content/blog/posts/img/openubem-graphical-abstract.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../../../styles.css">
-  <link rel="stylesheet" href="../../../blog.css?v=0bed7b5e">
-  <link rel="stylesheet" href="../../../mobile.css?v=914c7dcc">
+  <link rel="stylesheet" href="../../../styles.css?v=048f44ad">
+  <link rel="stylesheet" href="../../../blog.css?v=2e07f2ea">
+  <link rel="stylesheet" href="../../../mobile.css?v=ecb48901">
 </head>
 <body>
   <header class="page-topbar">
     <a href="../../../index.html" class="back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       home
     </a>
     <a href="../../../skills.html" class="back-link">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       skills &amp; tools
     </a>
   </header>
@@ -28,52 +43,39 @@
     <a href="../../../blog.html" class="post-allposts">‹ All posts</a>
     <h1 class="post-article-title">OpenUBEM: An Open-Source Toolkit for Urban Building Energy Modeling</h1>
     <div class="post-article-meta">Published · Nov 5, 2026</div>
+    <div class="post-article-labels"><span class="post-label">openubem</span><span class="post-label">UBEM</span><span class="post-label">EnergyPlus</span><span class="post-label">open source</span><span class="post-label">python</span></div>
     <hr class="post-divider">
     <div class="post-content">
 
-<div><a href="img/openubem-graphical-abstract.jpg"><img loading="lazy" src="img/openubem-graphical-abstract.jpg" alt="OpenUBEM 3D pipeline graphical abstract: from GIS data and semantic enrichment to dwelling zoning, EnergyPlus simulation, and carbon accounting" /></a></div>
+<div><a href="img/openubem-graphical-abstract.jpg"><img src="img/openubem-graphical-abstract.jpg" fetchpriority="high" decoding="async" alt="OpenUBEM 3D pipeline graphical abstract: from GIS data and semantic enrichment to dwelling zoning, EnergyPlus simulation, and carbon accounting" /></a></div>
 
-<div><br /></div>
+<p>I have been developing <strong>OpenUBEM</strong>, an open-source toolkit for urban building energy modeling. Give it a neighbourhood (an address, a coordinate bounding box, or a GIS footprint export) and it estimates the <strong>annual energy consumption</strong>, <strong>hourly load profiles</strong>, and <strong>operational carbon emissions</strong> of every building inside it, without needing per-building utility audits.</p>
 
-<div><p>I have been developing <strong>OpenUBEM</strong>, an open-source toolkit for urban building energy modeling. Give it a neighbourhood (an address, a coordinate bounding box, or a GIS footprint export) and it estimates the <strong>annual energy consumption</strong>, <strong>hourly load profiles</strong>, and <strong>operational carbon emissions</strong> of every building inside it, without needing per-building utility audits.</p></div>
+<h2>How it works</h2>
+<p>Each building is assigned an archetype, resolved into multi-dwelling thermal zones, extruded from its real footprint polygon with 20 m context shading, and simulated with whole-building EnergyPlus physics. The workflow is a modular, resume-capable pipeline:</p>
+<ol>
+  <li><strong>Data acquisition:</strong> OpenStreetMap, cadastre, and 3D building data.</li>
+  <li><strong>Semantic enrichment:</strong> building archetypes and ERA5 climate.</li>
+  <li><strong>IDF generation:</strong> dwelling layouts and the shading envelope.</li>
+  <li><strong>EnergyPlus simulation:</strong> multi-process runs.</li>
+  <li><strong>Results and carbon accounting:</strong> with an interactive 3D viewer.</li>
+</ol>
+<p>An optional sixth step adds outdoor microclimate (UTCI/PET).</p>
 
-<div><br /></div>
+<h2>Key features</h2>
+<ul>
+  <li>Every reported kWh comes from native EnergyPlus meters, with no fitted multipliers.</li>
+  <li>True footprint geometry with context shading, not shoebox proxies.</li>
+  <li>US archetypes (DOE/ASHRAE 90.1) and European building stocks (TABULA/EPISCOPE).</li>
+  <li>Standalone WebGL 3D viewers that need no server.</li>
+  <li>Every input field carries a provenance token: observed, imputed, or standard default.</li>
+</ul>
 
-<div><span><span>How it works</span></span></div>
-<div><p>Each building is assigned an archetype, resolved into multi-dwelling thermal zones, extruded from its real footprint polygon with 20 m context shading, and simulated with whole-building EnergyPlus physics. The workflow is a modular, resume-capable pipeline:</p></div>
-<div>
-  <ol>
-    <li><strong>Data acquisition:</strong> OpenStreetMap, cadastre, and 3D building data.</li>
-    <li><strong>Semantic enrichment:</strong> building archetypes and ERA5 climate.</li>
-    <li><strong>IDF generation:</strong> dwelling layouts and the shading envelope.</li>
-    <li><strong>EnergyPlus simulation:</strong> multi-process runs.</li>
-    <li><strong>Results and carbon accounting:</strong> with an interactive 3D viewer.</li>
-  </ol>
-  <p>An optional sixth step adds outdoor microclimate (UTCI/PET).</p>
-</div>
+<h2>Where it has run</h2>
+<p>OpenUBEM has been executed across 10 residential districts in 10 countries on 4 continents, and checked against NYC Local Law 84, CBECS 2018, and LA EBEWE benchmarks.</p>
 
-<div><br /></div>
-
-<div><span><span>Key features</span></span></div>
-<div>
-  <ul>
-    <li>Every reported kWh comes from native EnergyPlus meters, with no fitted multipliers.</li>
-    <li>True footprint geometry with context shading, not shoebox proxies.</li>
-    <li>US archetypes (DOE/ASHRAE 90.1) and European building stocks (TABULA/EPISCOPE).</li>
-    <li>Standalone WebGL 3D viewers that need no server.</li>
-    <li>Every input field carries a provenance token: observed, imputed, or standard default.</li>
-  </ul>
-</div>
-
-<div><br /></div>
-
-<div><span><span>Where it has run</span></span></div>
-<div><p>OpenUBEM has been executed across 10 residential districts in 10 countries on 4 continents, and checked against NYC Local Law 84, CBECS 2018, and LA EBEWE benchmarks.</p></div>
-
-<div><br /></div>
-
-<div><span><span>Get it</span></span></div>
-<div><p>OpenUBEM is dual-licensed under Apache 2.0 or MIT. The code, installation steps, and full documentation are on GitHub: <a href="https://github.com/orcunkoraliseri/OpenUBEM" target="_blank" rel="noopener">github.com/orcunkoraliseri/OpenUBEM</a>. It is also listed under My Tools on the <a href="../../../skills.html">Skills &amp; Tools</a> page.</p></div>
+<h2>Get it</h2>
+<p>OpenUBEM is dual-licensed under Apache 2.0 or MIT. The code, installation steps, and full documentation are on GitHub: <a href="https://github.com/orcunkoraliseri/OpenUBEM" target="_blank" rel="noopener">github.com/orcunkoraliseri/OpenUBEM</a>. It is also listed under My Tools on the <a href="../../../skills.html">Skills &amp; Tools</a> page.</p>
 
     </div>
     <hr class="post-divider">

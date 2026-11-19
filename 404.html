@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page Not Found - Orcun Koral Iseri</title>
+  <meta name="description" content="The requested page could not be found on orcunkoraliseri.com.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #f8f8f6;
+      color: #1a1a24;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 24px;
+    }
+    .not-found {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 40px 36px;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      text-align: center;
+    }
+    .nf-code {
+      font-family: 'Caveat', cursive;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #cf4219;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .nf-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .nf-desc {
+      color: #5a5a66;
+      font-size: 0.98rem;
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+    .nf-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 24px;
+      border-radius: 50px;
+      background-color: #cf4219;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      transition: background-color 0.2s ease;
+    }
+    .nf-home:hover { background-color: #b83712; }
+    .nf-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding-top: 20px;
+      border-top: 1px solid #ececef;
+    }
+    .nf-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 6px 14px;
+      border-radius: 50px;
+      border: 1px solid #d7d7dc;
+      color: #1a1a24;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+    .nf-links a:hover {
+      border-color: #216ea5;
+      background-color: rgba(53, 152, 219, 0.08);
+    }
+  </style>
+</head>
+<body>
+  <main class="not-found">
+    <div class="nf-code">404</div>
+    <h1 class="nf-title">Page not found</h1>
+    <p class="nf-desc">The page you requested could not be found. Explore the main sections below or return to the homepage.</p>
+    <a href="/index.html" class="nf-home">← Back to Home</a>
+    <nav class="nf-links" aria-label="Site sections">
+      <a href="/about.html">About Me</a>
+      <a href="/experience.html">Experience</a>
+      <a href="/education.html">Education</a>
+      <a href="/publications.html">Publications</a>
+      <a href="/blog.html">Blog</a>
+      <a href="/skills.html">Skills &amp; Tools</a>
+    </nav>
+  </main>
+</body>
+</html>

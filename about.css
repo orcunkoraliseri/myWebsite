@@ -81,17 +81,30 @@ body {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 6px;
-  opacity: 0;
-  transform: scale(0.9);
+  opacity: 1;
+  transform: none;
   transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
-.mosaic-img:hover {
+.mosaic-img:hover,
+.js .mosaic-img.is-visible:hover {
   transform: scale(1.08);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
   z-index: 10;
   position: relative;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .mosaic-img {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  .js .mosaic-img.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 /* ===========================
@@ -163,7 +176,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background-color: var(--orange);
+  background-color: #cf4219;
   color: white;
   text-decoration: none;
   padding: 8px 16px;
@@ -175,8 +188,8 @@ body {
 
 .btn-cv:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(240, 95, 51, 0.3);
-  background-color: #e65228;
+  box-shadow: 0 10px 20px rgba(207, 66, 25, 0.3);
+  background-color: #b83712;
 }
 
 /* Social Icons */
@@ -188,7 +201,7 @@ body {
 }
 
 .social-icon {
-  color: #a0a0ab;
+  color: #6e6e7a;
   transition: color 0.3s, transform 0.3s;
 }
 
@@ -301,15 +314,17 @@ body {
 /* ===========================
    Scroll Animations
    =========================== */
-.hidden-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .js .hidden-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
 
-.show-section {
-  opacity: 1;
-  transform: translateY(0);
+  .js .hidden-section.show-section {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================

@@ -1,6 +1,6 @@
 :root {
   --theme-color: rgba(20, 199, 222, 1);
-  --theme-color-dark: rgba(13, 145, 162, 1);
+  --theme-color-dark: #0a7482;
   --bg-color: rgba(248, 248, 246, 1);
   --text-dark: #1a1a24;
   --text-muted: #5a5a66;
@@ -236,15 +236,17 @@ body {
 /* ===========================
    Scroll Animations
    =========================== */
-.hidden-section {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
+@media (prefers-reduced-motion: no-preference) {
+  .js .hidden-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
 
-.show-section {
-  opacity: 1;
-  transform: translateY(0);
+  .js .hidden-section.show-section {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ===========================

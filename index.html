@@ -3,51 +3,90 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Personal Portfolio</title>
-  <meta name="description" content="A clean, minimalist personal website featuring an interactive 6-rectangle grid navigation.">
-  
+  <title>Orcun Koral Iseri, PhD — Urban Building Energy Modeling &amp; AI/ML</title>
+  <meta name="description" content="Personal academic website of Dr. Orcun Koral Iseri, Postdoctoral Researcher at Concordia University specializing in Urban Building Energy Modeling (UBEM), occupancy modeling, and AI/ML.">
+  <script>document.documentElement.classList.add('js');</script>
+  <link rel="canonical" href="https://www.orcunkoraliseri.com/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.ico" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Orcun Koral Iseri">
+  <meta property="og:title" content="Orcun Koral Iseri, PhD — Urban Building Energy Modeling &amp; AI/ML">
+  <meta property="og:description" content="Personal academic website of Dr. Orcun Koral Iseri, Postdoctoral Researcher at Concordia University specializing in Urban Building Energy Modeling (UBEM), occupancy modeling, and AI/ML.">
+  <meta property="og:url" content="https://www.orcunkoraliseri.com/">
+  <meta property="og:image" content="https://www.orcunkoraliseri.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Orcun Koral Iseri, PhD — Urban Building Energy Modeling &amp; AI/ML">
+  <meta name="twitter:description" content="Personal academic website of Dr. Orcun Koral Iseri, Postdoctoral Researcher at Concordia University specializing in Urban Building Energy Modeling (UBEM), occupancy modeling, and AI/ML.">
+  <meta name="twitter:image" content="https://www.orcunkoraliseri.com/og-image.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Orcun Koral Iseri",
+    "honorificSuffix": "PhD",
+    "jobTitle": "Postdoctoral Researcher",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Resilient Habitat Lab, Concordia University",
+      "url": "https://rhlab.encs.concordia.ca/"
+    },
+    "url": "https://www.orcunkoraliseri.com/",
+    "sameAs": [
+      "https://scholar.google.com/citations?user=s4l2zioAAAAJ&hl=en",
+      "https://github.com/orcunkoraliseri",
+      "https://www.researchgate.net/profile/Orcun_Iseri2/research",
+      "https://www.linkedin.com/in/orcun-koral-iseri-4669b0134/",
+      "https://twitter.com/koraliseri",
+      "https://www.youtube.com/@orcunkoraliseri9214"
+    ]
+  }
+  </script>
+
   <!-- Google Fonts: Inter for general fallback, Caveat for the handwritten style -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
-  
+
   <!-- Custom Stylesheets -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=048f44ad">
 </head>
 <body>
 
   <!-- Main interactive 3x2 grid of rectangles -->
   <main class="grid-container" aria-label="Main Navigation Grid">
-    
+    <h1 class="visually-hidden">Orcun Koral Iseri, PhD — Personal Academic Website</h1>
+
     <!-- Row 1 -->
     <a href="about.html" class="tile tile--orange" id="tile-about">
       <span class="tile__label">about me</span>
     </a>
-    
+
     <a href="experience.html" class="tile tile--magenta" id="tile-experience">
       <span class="tile__label">experience</span>
     </a>
-    
+
     <a href="education.html" class="tile tile--cyan" id="tile-education">
       <span class="tile__label">education</span>
     </a>
-    
+
     <!-- Row 2 -->
     <a href="publications.html" class="tile tile--green" id="tile-articles">
       <span class="tile__label">publications</span>
     </a>
-    
+
     <a href="blog.html" class="tile tile--blue" id="tile-blog">
       <span class="tile__label">blog</span>
     </a>
-    
+
     <a href="skills.html" class="tile tile--yellow" id="tile-skills">
       <span class="tile__label">skills &amp; tools</span>
     </a>
-    
+
   </main>
 
-  <!-- JavaScript for interaction enhancements (mobile touch, staggered load, parallax tilt) -->
-  <script src="script.js"></script>
+  <!-- JavaScript for interaction enhancements (mobile touch, 3D parallax tilt) -->
+  <script src="script.js?v=04ca8c03"></script>
 </body>
 </html>

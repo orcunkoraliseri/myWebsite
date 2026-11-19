@@ -9,7 +9,7 @@ The full project context lives in the manager prompt, which is imported below. R
 ## Hard rules (short version)
 
 - **Plan first, then build.** For anything beyond a small fix, write `docs_implementationPlan/<section>/implementation_plan.md` and get approval before building. Afterwards, write `walkthrough.md`.
-- **Never run `node tools/build-blog.js` as-is.** It would drop 5 hand-added posts from `blog.html`. See §5 of the manager prompt.
+- **`tools/build-blog.js` merges `content/blog/extra-posts.json`.** The 6 hand-added posts are registered there (`"handwritten": true`) so regenerating preserves them. Register any new hand-written post in `extra-posts.json` before running `node tools/build-blog.js`.
 - **Phone changes must not alter desktop.** Every `mobile.css` rule goes inside `@media (max-width: 768px)`, and `mobile.js` exits above 768px.
 - **The HTML is the source of truth.** The CSVs in `content/` are stale.
 - **Don't invent bio, publication, or skill content.** Ask the user or use the CV.
@@ -19,6 +19,8 @@ The full project context lives in the manager prompt, which is imported below. R
 
 ```bash
 npm run dev                   # http://localhost:3000
+node tools/build-blog.js      # rebuilds Blogger posts + blog.html (merges extra-posts.json)
+node tools/bump-assets.js     # refreshes ?v=<md5-8> cache-busters across all HTML files
 node tools/mobile-audit.js    # needs: npm i -D playwright && npx playwright install chromium
 ```
 
